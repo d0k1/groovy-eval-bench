@@ -1,0 +1,7 @@
+<% def intval = 4+5 %>
+
+This is just a test template
+It depends on external variable ${key}
+And on internal variable ${intval} as well
+
+Bye!
