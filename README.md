@@ -73,7 +73,7 @@ List of annotations I used below:
 ```
 
 # Results I got #
-Test execution took almost 2 hours (``# Run complete. Total time: 01:52:31``)
+`# Run complete. Total time: 01:52:31``
 
 | Method                                                                        | Score          | Error          | Units |
 |-------------------------------------------------------------------------------|----------------|----------------|-------|
