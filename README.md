@@ -1,4 +1,4 @@
-# Some JHM benchmark to get the right way to call Groovy from Java #
+# Some JHM benchmarks to get the right way to call Groovy from Java #
 There is some jmh benchmarks I wrote to find out which way is the best to call groovy scripts and/or groovy's template engine
 
 Each benchmark tries to run the same primitive groovy script. 
@@ -54,6 +54,12 @@ power management:
 ```
 ## Environment ##
 All of these tests I run on Ubuntu 16.04 x64
+```
+$ java -version
+java version "1.8.0_91"
+Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)
+```
 
 ## JMH options ##
 I used annotation to configre JMH to run each test. 
@@ -67,7 +73,7 @@ List of annotations I used below:
 ```
 
 # Results I got #
-Test execution took almost 2 hours (``# Run complete. Total time: 01:52:31``)
+`# Run complete. Total time: 01:52:31`
 
 | Method                                                                        | Score          | Error          | Units |
 |-------------------------------------------------------------------------------|----------------|----------------|-------|
