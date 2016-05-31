@@ -11,7 +11,9 @@ def y = a * x + b + key;
 return y;
 ```
 
-The script makes some simple math operation and requires external variable - ``key``.
+The script makes some simple math operations and requires external variable - ``key``.
+
+The point of these benchmarks is to measure real overhead produced by various ways of running groovy inside JVM.
 
 * GroovyShellBenchmark covers standard way to call groovy from java - throught GroovyShell
 * JSR223Benchmark covers unified way to call any script engine from java - jsr223 - scripting for the java platform
@@ -51,7 +53,7 @@ address sizes	: 39 bits physical, 48 bits virtual
 power management:
 ```
 ## Environment ##
-All of these test I run on Ubuntu 16.94 x64
+All of these tests I run on Ubuntu 16.04 x64
 
 ## JMH options ##
 I used annotation to configre JMH to run each test. 
