@@ -4,9 +4,6 @@
 
 def a = 10.25;
 def b = 2;
-
 def x = 122;
-
 def y = a * x + b + key;
-
 return y;

@@ -29,7 +29,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.focusit;
+package com.focusit.groovyscript.groovyshell;
 
 import groovy.lang.GroovyShell;
 import groovy.lang.MetaMethod;
@@ -44,8 +44,8 @@ import java.util.concurrent.TimeUnit;
 
 @State(Scope.Benchmark)
 @BenchmarkMode(value = Mode.Throughput)
-@Measurement(iterations = 8, time = 15, timeUnit = TimeUnit.SECONDS)
-@Warmup(iterations = 4, time = 15, timeUnit = TimeUnit.SECONDS)
+@Warmup(iterations = 4, time = 20, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 8, time = 20, timeUnit = TimeUnit.SECONDS)
 @Fork(4)
 @Threads(8)
 public class GroovyShellBenchmark {
@@ -65,24 +65,6 @@ public class GroovyShellBenchmark {
         scriptBinded = shell.parse(simpleScriptBody);
         scriptBinded.setProperty("key", 123L);
         runMethod = scriptBinded.getMetaClass().getMetaMethod("run", null);
-    }
-
-    @Benchmark
-    public void groovyAllInOneCycle(Blackhole bh) {
-        GroovyShell shell = new GroovyShell();
-        bh.consume(shell);
-        Script script = shell.parse(simpleScriptBody);
-        script.setProperty("key", 123L);
-        Object result = script.run();
-        bh.consume(result);
-    }
-
-    @Benchmark
-    public void groovyNoShellInOneCycle(Blackhole bh) {
-        Script script = shell.parse(simpleScriptBody);
-        script.setProperty("key", 123L);
-        Object result = script.run();
-        bh.consume(result);
     }
 
     @Benchmark
