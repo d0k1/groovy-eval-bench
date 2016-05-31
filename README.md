@@ -1,4 +1,4 @@
-# Some JHM benchmark to get the right way to call Groovy from Java #
+# Some JHM benchmarks to get the right way to call Groovy from Java #
 There is some jmh benchmarks I wrote to find out which way is the best to call groovy scripts and/or groovy's template engine
 
 Each benchmark tries to run the same primitive groovy script. 
