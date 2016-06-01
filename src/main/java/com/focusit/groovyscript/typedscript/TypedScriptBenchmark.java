@@ -25,6 +25,7 @@ public class TypedScriptBenchmark {
     private String typedScriptBody;
     private GroovyShell shell;
     ITypedScript typedScript;
+    Class typedClass;
 
     @Setup
     public void init() throws IOException, ScriptException, ClassNotFoundException, IllegalAccessException, InstantiationException {
@@ -32,12 +33,17 @@ public class TypedScriptBenchmark {
             typedScriptBody = IOUtils.toString(is, "UTF-8");
         }
         shell = new GroovyShell();
-        typedScript = (ITypedScript) shell.getClassLoader().loadClass("TypedScript").newInstance();
+        shell.parse(typedScriptBody);
+
+        typedClass = shell.getClassLoader().loadClass("TypedScript");
+        typedScript = (ITypedScript) typedClass.newInstance();
     }
 
     @Benchmark
     public void groovyNoShellNoCompile(Blackhole bh) throws ScriptException, ClassNotFoundException, IllegalAccessException, InstantiationException {
-        ITypedScript typedScript = (ITypedScript) shell.getClassLoader().loadClass("TypedScript").newInstance();
+
+        ITypedScript typedScript = (ITypedScript) typedClass.newInstance();
+
         bh.consume(typedScript.test(123L));
     }
 

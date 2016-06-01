@@ -5,22 +5,23 @@ import groovy.lang.Script;
 /**
  * Created by dkirpichenkov on 31.05.16.
  */
-public abstract class GroovyScriptBase extends Script
-{
+public abstract class GroovyScriptBase extends Script {
     private long key;
 
-    public void setKey(long key)
-    {
+    public void setKey(long key) {
         this.key = key;
     }
 
-    public long getKey()
-    {
+    public long getKey() {
         return key;
     }
 
-    public Object execute()
-    {
+    public void fillBinding() {
+        getBinding().setVariable("key", getKey());
+    }
+
+    public Object execute() {
+        fillBinding();
         return run();
     }
 }
