@@ -1,27 +1,30 @@
 package com.focusit.template;
 
-import com.focusit.POJOBinding;
-import com.focusit.groovyscript.groovyshell.GroovyShellExample;
-import com.focusit.template.internal.CustomTemplate;
-import groovy.lang.Binding;
-import groovy.lang.GroovyShell;
-import groovy.lang.Script;
-import groovy.text.SimpleTemplateEngine;
-import groovy.text.Template;
-import org.apache.commons.io.IOUtils;
-import org.codehaus.groovy.control.CompilerConfiguration;
-import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.infra.Blackhole;
+import static org.codehaus.groovy.control.CompilerConfiguration.INVOKEDYNAMIC;
 
-import javax.script.Bindings;
-import javax.script.SimpleBindings;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.concurrent.TimeUnit;
 
-import static org.codehaus.groovy.control.CompilerConfiguration.INVOKEDYNAMIC;
+import javax.script.Bindings;
+import javax.script.SimpleBindings;
+
+import org.apache.commons.io.IOUtils;
+import org.codehaus.groovy.control.CompilerConfiguration;
+import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.infra.Blackhole;
+
+import com.focusit.POJOBinding;
+import com.focusit.groovyscript.groovyshell.GroovyShellExample;
+import com.focusit.template.internal.CustomTemplate;
+
+import groovy.lang.Binding;
+import groovy.lang.GroovyShell;
+import groovy.lang.Script;
+import groovy.text.SimpleTemplateEngine;
+import groovy.text.Template;
 
 /**
  * Created by dkirpichenkov on 31.05.16.
@@ -32,7 +35,8 @@ import static org.codehaus.groovy.control.CompilerConfiguration.INVOKEDYNAMIC;
 @Measurement(iterations = 8, time = 20, timeUnit = TimeUnit.SECONDS)
 @Fork(4)
 @Threads(8)
-public class TemplateBenchmark {
+public class TemplateBenchmark
+{
     private static final String CALCULATION_SCRIPT = "System.currentTimeMillis();";
     private Template scriptTemplate;
     private String template;
@@ -43,8 +47,10 @@ public class TemplateBenchmark {
     private Class templateClass;
 
     @Setup
-    public void init() throws IOException, ClassNotFoundException {
-        try (InputStream is = GroovyShellExample.class.getClassLoader().getResourceAsStream("GroovyTemplate.txt")) {
+    public void init() throws IOException, ClassNotFoundException
+    {
+        try (InputStream is = GroovyShellExample.class.getClassLoader().getResourceAsStream("GroovyTemplate.txt"))
+        {
             template = IOUtils.toString(is, "UTF-8");
         }
         String template1 = "<%" + CALCULATION_SCRIPT + "%>" + template;
@@ -63,7 +69,8 @@ public class TemplateBenchmark {
     }
 
     @Benchmark
-    public void templateNoCompilation(Blackhole bh) throws IOException, ClassNotFoundException {
+    public void templateNoCompilation(Blackhole bh) throws IOException, ClassNotFoundException
+    {
         Bindings bindings = new SimpleBindings();
         bindings.put("key", "test!!!!!");
 
@@ -72,7 +79,8 @@ public class TemplateBenchmark {
     }
 
     @Benchmark
-    public void templateNoCompilationCustomParser(Blackhole bh) throws IOException, ClassNotFoundException {
+    public void templateNoCompilationCustomParser(Blackhole bh) throws IOException, ClassNotFoundException
+    {
         Binding bindings = new Binding();
 
         StringWriter writer = new StringWriter();
@@ -87,10 +95,12 @@ public class TemplateBenchmark {
     }
 
     @Benchmark
-    public void templateNoCompilationCustomParserTyped(Blackhole bh) throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+    public void templateNoCompilationCustomParserTyped(Blackhole bh)
+            throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException
+    {
         StringWriter writer = new StringWriter();
 
-        TemplateBaseClass base = (TemplateBaseClass) templateClass.newInstance();
+        TemplateBaseClass base = (TemplateBaseClass)templateClass.newInstance();
         base.setKey("test???");
         base.setOut(writer);
         base.setBinding(new POJOBinding());
