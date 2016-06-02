@@ -50,8 +50,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)
 ```
 
 ## JMH options ##
-I used these annotations to configre JMH to run each test. 
-List of annotations I used below:
+I used these annotations to configre JMH to run each test:
 ```
 @BenchmarkMode(value = Mode.Throughput)
 @Warmup(iterations = 4, time = 20, timeUnit = TimeUnit.SECONDS)
