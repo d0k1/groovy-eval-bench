@@ -1,25 +1,13 @@
 # Some JHM benchmarks to get the right way to call Groovy from Java #
 There is some jmh benchmarks I wrote to find out which way is the best to call groovy scripts and/or groovy's template engine
 
-Each benchmark tries to run the same primitive groovy script. 
-
-```
-def a = 10.25;
-def b = 2;
-def x = 122;
-def y = a * x + b + key;
-return y;
-```
-
-The script makes some simple math operations and requires external variable - ``key``.
-
 The point of these benchmarks is to measure real overhead produced by various ways of running groovy inside JVM.
+
+Each benchmark tries to run the same primitive groovy script in it's own way: 
 
 * GroovyShellBenchmark covers standard way to call groovy from java - throught GroovyShell
 * JSR223Benchmark covers unified way to call any script engine from java - jsr223 - scripting for the java platform
 * TypedScript uses groovy to compile the script to *.class, and then instantiates an object and call directly it's method(s). 
-That case uses special version of the script. `TypedScript.groovy` This script has a definition of a class with a method to make a calculation.
-Of course method do exactly the same as an original `SimpleScript.groovy`.
 
 # Conditions #
 ## Hardware ##
@@ -73,15 +61,9 @@ List of annotations I used below:
 ```
 
 # Results I got #
-`# Run complete. Total time: 01:52:31`
 
 | Method                                                                        | Score          | Error          | Units |
 |-------------------------------------------------------------------------------|----------------|----------------|-------|
 |GroovyShellBenchmark.groovyNoShellNoScriptInOneCycle                           |3380448.142     | ±107825.500    | ops/s |
-|GroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle                  |3782839.491     | ±109339.793    | ops/s |
-|**GroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle**      |**3759805.032** | **±35432.064** | ops/s |
-|GroovyJSR223Benchmark.groovyNoEngineInOneCycle                                 |132404.812      | ±1534.816      | ops/s |
-|GroovyJSR223Benchmark.groovyNoEngineNoScriptInOneCycle                         |133206.002      | ±1647.096      | ops/s |
-|**TypedScriptBenchmark.groovyNoShellNoCompile**                                |**3319700.567** | **±46150.756** | ops/s |
-|TypedScriptBenchmark.groovyNoShellNoCompileNoInstantiate                       |3836564.333     | ±135134.920    | ops/s |
 
+Need to update
