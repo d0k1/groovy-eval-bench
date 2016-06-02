@@ -59,7 +59,7 @@ I used these annotations to configre JMH to run each test:
 @Threads(8)
 ```
 
-# Results I got #
+# Results #
 
 | Method                                                                        | Score          | Error          | Units |
 |-------------------------------------------------------------------------------|----------------|----------------|-------|
