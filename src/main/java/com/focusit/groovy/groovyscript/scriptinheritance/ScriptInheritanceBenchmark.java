@@ -36,7 +36,7 @@ public class ScriptInheritanceBenchmark {
         }
         CompilerConfiguration cfg = new CompilerConfiguration();
         cfg.getOptimizationOptions().put(INVOKEDYNAMIC, true);
-        cfg.setScriptBaseClass("com.focusit.groovyscript.scriptinheritance.GroovyScriptBase");
+        cfg.setScriptBaseClass(GroovyScriptBase.class.getName());
 
         shell = new GroovyShell(cfg);
         shell.parse(simpleScriptBody, "GroovyScriptDerived.groovy");

@@ -52,7 +52,7 @@ public class TemplateBenchmark {
         scriptTemplate = new SimpleTemplateEngine().createTemplate(template1);
 
         cfg = new CompilerConfiguration();
-        cfg.setScriptBaseClass("com.focusit.template.TemplateBaseClass");
+        cfg.setScriptBaseClass(TemplateBaseClass.class.getName());
         cfg.getOptimizationOptions().put(INVOKEDYNAMIC, true);
 
         shell = new GroovyShell(cfg);

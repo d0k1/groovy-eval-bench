@@ -54,7 +54,7 @@ public class CustomTemplateExample {
 
         String template1 = "<%" + CALCULATION_SCRIPT + "%>" + template;
         CompilerConfiguration cfg = new CompilerConfiguration();
-        cfg.setScriptBaseClass("com.focusit.template.TemplateBaseClass");
+        cfg.setScriptBaseClass(TemplateBaseClass.class.getName());
         cfg.getOptimizationOptions().put(INVOKEDYNAMIC, true);
 
         GroovyShell shell = new GroovyShell(cfg);

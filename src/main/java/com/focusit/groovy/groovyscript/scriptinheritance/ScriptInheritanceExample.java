@@ -27,7 +27,7 @@ public class ScriptInheritanceExample {
         //In case you want to save compiled class for further analyze
         //cfg.setTargetDirectory("/tmp/groovyc");
         cfg.getOptimizationOptions().put(INVOKEDYNAMIC, true);
-        cfg.setScriptBaseClass("com.focusit.groovyscript.scriptinheritance.GroovyScriptBase");
+        cfg.setScriptBaseClass(GroovyScriptBase.class.getName());
 
         GroovyShell shell = new GroovyShell(cfg);
         shell.parse(simpleScriptBody, "GroovyScriptDerived.groovy");

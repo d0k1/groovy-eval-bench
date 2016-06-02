@@ -37,7 +37,7 @@ public class StaticCompilationExample {
         cfg.setTargetBytecode("52");
         //In case you want to save compiled class for further analyze
         //cfg.setTargetDirectory("/tmp/groovyc");
-        cfg.setScriptBaseClass("com.focusit.groovyscript.scriptinheritance.GroovyScriptBase");
+        cfg.setScriptBaseClass(GroovyScriptBase.class.getName());
         cfg.addCompilationCustomizers(new ASTTransformationCustomizer(CompileStatic.class));
 
         loader = new GroovyClassLoader(GroovyCompilationExample.class.getClassLoader(), cfg);

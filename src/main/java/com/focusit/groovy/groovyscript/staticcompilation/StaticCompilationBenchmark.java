@@ -45,7 +45,7 @@ public class StaticCompilationBenchmark {
         options.put(CompilerConfiguration.INVOKEDYNAMIC, true);
         cfg.setOptimizationOptions(options);
         cfg.setTargetBytecode("52");
-        cfg.setScriptBaseClass("com.focusit.groovyscript.scriptinheritance.GroovyScriptBase");
+        cfg.setScriptBaseClass(GroovyScriptBase.class.getName());
         cfg.addCompilationCustomizers(new ASTTransformationCustomizer(CompileStatic.class));
 
         loader = new GroovyClassLoader(GroovyCompilationExample.class.getClassLoader(), cfg);
