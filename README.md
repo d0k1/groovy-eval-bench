@@ -13,7 +13,7 @@ Each benchmark tries to run the same primitive groovy script in it's own way:
 * TemplateBenchmark shows the price for Groovy GString templating
 * JavaBenchmark shows performance of the same operations written in Java
 
-# Conditions #
+# Environment #
 ## Hardware ##
 CPU used to run benchmarks
 ```
@@ -44,7 +44,7 @@ cache_alignment	: 64
 address sizes	: 39 bits physical, 48 bits virtual
 power management:
 ```
-## Environment ##
+## Software ##
 OS Ubuntu 16.04 x64 with Oracle Java
 ```
 $ java -version
