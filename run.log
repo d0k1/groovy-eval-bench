@@ -1,0 +1,1641 @@
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.compilation.GroovyCompilationBenchmark.scriptFromClassloader
+
+# Run progress: 0.00% complete, ETA 06:00:00
+# Fork: 1 of 4
+# Warmup Iteration   1: 2998011.011 ops/s
+# Warmup Iteration   2: 3185491.304 ops/s
+# Warmup Iteration   3: 3500271.380 ops/s
+# Warmup Iteration   4: 3494742.562 ops/s
+# Warmup Iteration   5: 3448965.781 ops/s
+Iteration   1: 3404487.411 ops/s
+Iteration   2: 3488141.415 ops/s
+Iteration   3: 3499599.614 ops/s
+Iteration   4: 3482686.786 ops/s
+Iteration   5: 3367454.728 ops/s
+Iteration   6: 3505197.455 ops/s
+Iteration   7: 3494831.055 ops/s
+Iteration   8: 3491490.095 ops/s
+Iteration   9: 3480842.015 ops/s
+Iteration  10: 3487177.664 ops/s
+
+# Run progress: 1.39% complete, ETA 05:56:23
+# Fork: 2 of 4
+# Warmup Iteration   1: 3323937.523 ops/s
+# Warmup Iteration   2: 3500362.922 ops/s
+# Warmup Iteration   3: 3499445.337 ops/s
+# Warmup Iteration   4: 3498470.106 ops/s
+# Warmup Iteration   5: 3500091.066 ops/s
+Iteration   1: 3502256.988 ops/s
+Iteration   2: 3507298.478 ops/s
+Iteration   3: 3506292.614 ops/s
+Iteration   4: 3500775.992 ops/s
+Iteration   5: 3502530.091 ops/s
+Iteration   6: 3502837.720 ops/s
+Iteration   7: 3499112.403 ops/s
+Iteration   8: 3499743.676 ops/s
+Iteration   9: 3498974.423 ops/s
+Iteration  10: 3505134.249 ops/s
+
+# Run progress: 2.78% complete, ETA 05:51:20
+# Fork: 3 of 4
+# Warmup Iteration   1: 3271153.197 ops/s
+# Warmup Iteration   2: 3456635.663 ops/s
+# Warmup Iteration   3: 3465572.486 ops/s
+# Warmup Iteration   4: 3458005.700 ops/s
+# Warmup Iteration   5: 3456468.990 ops/s
+Iteration   1: 3445004.075 ops/s
+Iteration   2: 3325547.064 ops/s
+Iteration   3: 3430824.515 ops/s
+Iteration   4: 3469446.201 ops/s
+Iteration   5: 3465612.756 ops/s
+Iteration   6: 3472026.378 ops/s
+Iteration   7: 3468743.223 ops/s
+Iteration   8: 3465932.349 ops/s
+Iteration   9: 3471083.312 ops/s
+Iteration  10: 3464943.439 ops/s
+
+# Run progress: 4.17% complete, ETA 05:46:18
+# Fork: 4 of 4
+# Warmup Iteration   1: 3291065.286 ops/s
+# Warmup Iteration   2: 3360671.222 ops/s
+# Warmup Iteration   3: 3354939.125 ops/s
+# Warmup Iteration   4: 3345818.981 ops/s
+# Warmup Iteration   5: 3353310.053 ops/s
+Iteration   1: 3348481.136 ops/s
+Iteration   2: 3352499.753 ops/s
+Iteration   3: 3350441.423 ops/s
+Iteration   4: 3346109.525 ops/s
+Iteration   5: 3353252.097 ops/s
+Iteration   6: 3362773.857 ops/s
+Iteration   7: 3354780.105 ops/s
+Iteration   8: 3359443.198 ops/s
+Iteration   9: 3350021.647 ops/s
+Iteration  10: 3344810.165 ops/s
+
+
+Result "scriptFromClassloader":
+  3443216.027 ±(99.9%) 36354.126 ops/s [Average]
+  (min, avg, max) = (3325547.064, 3443216.027, 3507298.478), stdev = 64619.427
+  CI (99.9%): [3406861.901, 3479570.153] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptInOneCycle
+
+# Run progress: 5.56% complete, ETA 05:41:18
+# Fork: 1 of 4
+# Warmup Iteration   1: 4009976.924 ops/s
+# Warmup Iteration   2: 3736787.800 ops/s
+# Warmup Iteration   3: 3780485.929 ops/s
+# Warmup Iteration   4: 3774442.798 ops/s
+# Warmup Iteration   5: 3752665.393 ops/s
+Iteration   1: 3784471.059 ops/s
+Iteration   2: 3781114.457 ops/s
+Iteration   3: 3780943.390 ops/s
+Iteration   4: 3782546.757 ops/s
+Iteration   5: 3785167.909 ops/s
+Iteration   6: 3773852.638 ops/s
+Iteration   7: 3784611.906 ops/s
+Iteration   8: 3774201.713 ops/s
+Iteration   9: 3788274.131 ops/s
+Iteration  10: 3777427.352 ops/s
+
+# Run progress: 6.94% complete, ETA 05:36:20
+# Fork: 2 of 4
+# Warmup Iteration   1: 4021440.100 ops/s
+# Warmup Iteration   2: 4174106.165 ops/s
+# Warmup Iteration   3: 4176603.741 ops/s
+# Warmup Iteration   4: 4175036.307 ops/s
+# Warmup Iteration   5: 4190539.658 ops/s
+Iteration   1: 4186917.438 ops/s
+Iteration   2: 4188865.802 ops/s
+Iteration   3: 4186124.594 ops/s
+Iteration   4: 4191110.529 ops/s
+Iteration   5: 4177270.453 ops/s
+Iteration   6: 4183310.436 ops/s
+Iteration   7: 4189619.098 ops/s
+Iteration   8: 4195108.149 ops/s
+Iteration   9: 4160166.685 ops/s
+Iteration  10: 4169655.899 ops/s
+
+# Run progress: 8.33% complete, ETA 05:31:21
+# Fork: 3 of 4
+# Warmup Iteration   1: 3983829.750 ops/s
+# Warmup Iteration   2: 4209697.000 ops/s
+# Warmup Iteration   3: 4222429.435 ops/s
+# Warmup Iteration   4: 4223540.063 ops/s
+# Warmup Iteration   5: 4235909.197 ops/s
+Iteration   1: 4221133.735 ops/s
+Iteration   2: 4234762.145 ops/s
+Iteration   3: 4225183.387 ops/s
+Iteration   4: 4216903.375 ops/s
+Iteration   5: 4225512.781 ops/s
+Iteration   6: 4242044.959 ops/s
+Iteration   7: 4212916.288 ops/s
+Iteration   8: 4233347.123 ops/s
+Iteration   9: 4230310.254 ops/s
+Iteration  10: 4235609.356 ops/s
+
+# Run progress: 9.72% complete, ETA 05:26:20
+# Fork: 4 of 4
+# Warmup Iteration   1: 4128238.747 ops/s
+# Warmup Iteration   2: 4193185.397 ops/s
+# Warmup Iteration   3: 4213956.334 ops/s
+# Warmup Iteration   4: 4219069.734 ops/s
+# Warmup Iteration   5: 4214742.124 ops/s
+Iteration   1: 4212076.513 ops/s
+Iteration   2: 4215293.970 ops/s
+Iteration   3: 4222958.871 ops/s
+Iteration   4: 4206406.453 ops/s
+Iteration   5: 4216635.571 ops/s
+Iteration   6: 4222234.344 ops/s
+Iteration   7: 4220573.714 ops/s
+Iteration   8: 4210693.927 ops/s
+Iteration   9: 4210191.452 ops/s
+Iteration  10: 4220553.669 ops/s
+
+
+Result "groovyNoShellNoScriptInOneCycle":
+  4101902.557 ±(99.9%) 105978.620 ops/s [Average]
+  (min, avg, max) = (3773852.638, 4101902.557, 4242044.959), stdev = 188376.903
+  CI (99.9%): [3995923.937, 4207881.177] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle
+
+# Run progress: 11.11% complete, ETA 05:21:19
+# Fork: 1 of 4
+# Warmup Iteration   1: 3815112.770 ops/s
+# Warmup Iteration   2: 4001655.248 ops/s
+# Warmup Iteration   3: 3997084.890 ops/s
+# Warmup Iteration   4: 4004060.990 ops/s
+# Warmup Iteration   5: 3998842.986 ops/s
+Iteration   1: 4002185.990 ops/s
+Iteration   2: 3996433.669 ops/s
+Iteration   3: 3995928.474 ops/s
+Iteration   4: 4007254.266 ops/s
+Iteration   5: 4002466.538 ops/s
+Iteration   6: 4000481.680 ops/s
+Iteration   7: 3999697.094 ops/s
+Iteration   8: 4004598.026 ops/s
+Iteration   9: 4002062.526 ops/s
+Iteration  10: 3994483.823 ops/s
+
+# Run progress: 12.50% complete, ETA 05:16:19
+# Fork: 2 of 4
+# Warmup Iteration   1: 4320678.910 ops/s
+# Warmup Iteration   2: 4443017.314 ops/s
+# Warmup Iteration   3: 4460857.462 ops/s
+# Warmup Iteration   4: 4452436.496 ops/s
+# Warmup Iteration   5: 4454955.828 ops/s
+Iteration   1: 4455547.840 ops/s
+Iteration   2: 4451521.553 ops/s
+Iteration   3: 4462443.329 ops/s
+Iteration   4: 4452462.510 ops/s
+Iteration   5: 4462593.981 ops/s
+Iteration   6: 4456911.481 ops/s
+Iteration   7: 4449434.822 ops/s
+Iteration   8: 4451216.040 ops/s
+Iteration   9: 4449052.289 ops/s
+Iteration  10: 4435406.962 ops/s
+
+# Run progress: 13.89% complete, ETA 05:11:18
+# Fork: 3 of 4
+# Warmup Iteration   1: 4276800.275 ops/s
+# Warmup Iteration   2: 4439390.235 ops/s
+# Warmup Iteration   3: 4477703.104 ops/s
+# Warmup Iteration   4: 4479127.422 ops/s
+# Warmup Iteration   5: 4476057.869 ops/s
+Iteration   1: 4472715.761 ops/s
+Iteration   2: 4473050.070 ops/s
+Iteration   3: 4474381.997 ops/s
+Iteration   4: 4467874.864 ops/s
+Iteration   5: 4470719.548 ops/s
+Iteration   6: 4470379.436 ops/s
+Iteration   7: 4470947.737 ops/s
+Iteration   8: 4471496.020 ops/s
+Iteration   9: 4479238.955 ops/s
+Iteration  10: 4483511.628 ops/s
+
+# Run progress: 15.28% complete, ETA 05:06:17
+# Fork: 4 of 4
+# Warmup Iteration   1: 4278866.461 ops/s
+# Warmup Iteration   2: 4446256.564 ops/s
+# Warmup Iteration   3: 4467762.668 ops/s
+# Warmup Iteration   4: 4470079.060 ops/s
+# Warmup Iteration   5: 4465390.789 ops/s
+Iteration   1: 4464147.129 ops/s
+Iteration   2: 4456282.747 ops/s
+Iteration   3: 4464334.522 ops/s
+Iteration   4: 4476285.371 ops/s
+Iteration   5: 4446817.747 ops/s
+Iteration   6: 4452365.484 ops/s
+Iteration   7: 4447071.387 ops/s
+Iteration   8: 4464223.032 ops/s
+Iteration   9: 4458622.258 ops/s
+Iteration  10: 4470950.451 ops/s
+
+
+Result "groovyNoShellNoScriptNoBindingInOneCycle":
+  4346689.976 ±(99.9%) 113999.967 ops/s [Average]
+  (min, avg, max) = (3994483.823, 4346689.976, 4483511.628), stdev = 202634.840
+  CI (99.9%): [4232690.009, 4460689.942] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle
+
+# Run progress: 16.67% complete, ETA 05:01:15
+# Fork: 1 of 4
+# Warmup Iteration   1: 4230464.263 ops/s
+# Warmup Iteration   2: 3947951.298 ops/s
+# Warmup Iteration   3: 3951129.167 ops/s
+# Warmup Iteration   4: 3943846.372 ops/s
+# Warmup Iteration   5: 3952233.627 ops/s
+Iteration   1: 3961673.899 ops/s
+Iteration   2: 3955962.756 ops/s
+Iteration   3: 3958590.069 ops/s
+Iteration   4: 3950219.417 ops/s
+Iteration   5: 3955060.450 ops/s
+Iteration   6: 3957002.193 ops/s
+Iteration   7: 3957010.775 ops/s
+Iteration   8: 3958590.488 ops/s
+Iteration   9: 3949251.218 ops/s
+Iteration  10: 3956442.409 ops/s
+
+# Run progress: 18.06% complete, ETA 04:56:14
+# Fork: 2 of 4
+# Warmup Iteration   1: 4201778.477 ops/s
+# Warmup Iteration   2: 4353663.774 ops/s
+# Warmup Iteration   3: 4350178.800 ops/s
+# Warmup Iteration   4: 4355534.997 ops/s
+# Warmup Iteration   5: 4359695.255 ops/s
+Iteration   1: 4350176.716 ops/s
+Iteration   2: 4347500.491 ops/s
+Iteration   3: 4323889.497 ops/s
+Iteration   4: 4365068.454 ops/s
+Iteration   5: 4363471.587 ops/s
+Iteration   6: 4365071.552 ops/s
+Iteration   7: 4362649.892 ops/s
+Iteration   8: 4368365.708 ops/s
+Iteration   9: 4362577.033 ops/s
+Iteration  10: 4360034.954 ops/s
+
+# Run progress: 19.44% complete, ETA 04:51:13
+# Fork: 3 of 4
+# Warmup Iteration   1: 4204935.799 ops/s
+# Warmup Iteration   2: 4340370.825 ops/s
+# Warmup Iteration   3: 4349601.405 ops/s
+# Warmup Iteration   4: 4344531.717 ops/s
+# Warmup Iteration   5: 4354737.364 ops/s
+Iteration   1: 4352733.395 ops/s
+Iteration   2: 4349030.807 ops/s
+Iteration   3: 4353182.865 ops/s
+Iteration   4: 4336208.310 ops/s
+Iteration   5: 4348604.344 ops/s
+Iteration   6: 4352271.069 ops/s
+Iteration   7: 4339390.496 ops/s
+Iteration   8: 4347938.933 ops/s
+Iteration   9: 4347879.794 ops/s
+Iteration  10: 4341842.567 ops/s
+
+# Run progress: 20.83% complete, ETA 04:46:12
+# Fork: 4 of 4
+# Warmup Iteration   1: 4153939.975 ops/s
+# Warmup Iteration   2: 4315933.928 ops/s
+# Warmup Iteration   3: 4250010.182 ops/s
+# Warmup Iteration   4: 4261331.770 ops/s
+# Warmup Iteration   5: 4275582.859 ops/s
+Iteration   1: 4277330.998 ops/s
+Iteration   2: 4281930.036 ops/s
+Iteration   3: 4271396.859 ops/s
+Iteration   4: 4268996.767 ops/s
+Iteration   5: 4266721.540 ops/s
+Iteration   6: 4267135.221 ops/s
+Iteration   7: 4271954.420 ops/s
+Iteration   8: 4276318.920 ops/s
+Iteration   9: 4263196.105 ops/s
+Iteration  10: 4276142.344 ops/s
+
+
+Result "groovyNoShellNoScriptNoBindingNoMethodInOneCycle":
+  4232970.384 ±(99.9%) 93109.872 ops/s [Average]
+  (min, avg, max) = (3949251.218, 4232970.384, 4368365.708), stdev = 165502.717
+  CI (99.9%): [4139860.511, 4326080.256] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptInOneCycle
+
+# Run progress: 22.22% complete, ETA 04:41:11
+# Fork: 1 of 4
+# Warmup Iteration   1: 4525509.657 ops/s
+# Warmup Iteration   2: 4694624.748 ops/s
+# Warmup Iteration   3: 4705517.984 ops/s
+# Warmup Iteration   4: 4718516.464 ops/s
+# Warmup Iteration   5: 4705831.205 ops/s
+Iteration   1: 4702448.321 ops/s
+Iteration   2: 4708006.022 ops/s
+Iteration   3: 4706255.043 ops/s
+Iteration   4: 4706393.299 ops/s
+Iteration   5: 4713921.213 ops/s
+Iteration   6: 4711556.021 ops/s
+Iteration   7: 4697584.795 ops/s
+Iteration   8: 4683642.371 ops/s
+Iteration   9: 4678837.011 ops/s
+Iteration  10: 4695572.925 ops/s
+
+# Run progress: 23.61% complete, ETA 04:36:10
+# Fork: 2 of 4
+# Warmup Iteration   1: 4511966.749 ops/s
+# Warmup Iteration   2: 4734147.979 ops/s
+# Warmup Iteration   3: 4736979.429 ops/s
+# Warmup Iteration   4: 4740448.955 ops/s
+# Warmup Iteration   5: 4737157.557 ops/s
+Iteration   1: 4740742.965 ops/s
+Iteration   2: 4744366.431 ops/s
+Iteration   3: 4746461.091 ops/s
+Iteration   4: 4731220.794 ops/s
+Iteration   5: 4735963.763 ops/s
+Iteration   6: 4738163.497 ops/s
+Iteration   7: 4743880.472 ops/s
+Iteration   8: 4733486.763 ops/s
+Iteration   9: 4729524.196 ops/s
+Iteration  10: 4739119.666 ops/s
+
+# Run progress: 25.00% complete, ETA 04:31:09
+# Fork: 3 of 4
+# Warmup Iteration   1: 4503406.204 ops/s
+# Warmup Iteration   2: 4650138.309 ops/s
+# Warmup Iteration   3: 4690430.907 ops/s
+# Warmup Iteration   4: 4675214.696 ops/s
+# Warmup Iteration   5: 4676335.663 ops/s
+Iteration   1: 4672609.790 ops/s
+Iteration   2: 4681377.883 ops/s
+Iteration   3: 4675528.931 ops/s
+Iteration   4: 4675316.260 ops/s
+Iteration   5: 4664195.099 ops/s
+Iteration   6: 4676584.900 ops/s
+Iteration   7: 4662411.428 ops/s
+Iteration   8: 4672494.014 ops/s
+Iteration   9: 4670597.798 ops/s
+Iteration  10: 4675545.175 ops/s
+
+# Run progress: 26.39% complete, ETA 04:26:08
+# Fork: 4 of 4
+# Warmup Iteration   1: 4383737.850 ops/s
+# Warmup Iteration   2: 4819122.772 ops/s
+# Warmup Iteration   3: 4819767.173 ops/s
+# Warmup Iteration   4: 4838213.964 ops/s
+# Warmup Iteration   5: 4833111.661 ops/s
+Iteration   1: 4823209.375 ops/s
+Iteration   2: 4826363.357 ops/s
+Iteration   3: 4822316.525 ops/s
+Iteration   4: 4813614.856 ops/s
+Iteration   5: 4825382.385 ops/s
+Iteration   6: 4824308.279 ops/s
+Iteration   7: 4824793.968 ops/s
+Iteration   8: 4834717.670 ops/s
+Iteration   9: 4826888.225 ops/s
+Iteration  10: 4828631.438 ops/s
+
+
+Result "groovyNoShellNoScriptInOneCycle":
+  4734100.850 ±(99.9%) 32975.947 ops/s [Average]
+  (min, avg, max) = (4662411.428, 4734100.850, 4834717.670), stdev = 58614.716
+  CI (99.9%): [4701124.904, 4767076.797] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle
+
+# Run progress: 27.78% complete, ETA 04:21:06
+# Fork: 1 of 4
+# Warmup Iteration   1: 4641974.966 ops/s
+# Warmup Iteration   2: 4808134.647 ops/s
+# Warmup Iteration   3: 4822757.112 ops/s
+# Warmup Iteration   4: 4829518.571 ops/s
+# Warmup Iteration   5: 4814435.920 ops/s
+Iteration   1: 4822610.276 ops/s
+Iteration   2: 4821338.133 ops/s
+Iteration   3: 4820710.029 ops/s
+Iteration   4: 4826201.545 ops/s
+Iteration   5: 4819606.723 ops/s
+Iteration   6: 4825431.932 ops/s
+Iteration   7: 4827240.091 ops/s
+Iteration   8: 4800929.642 ops/s
+Iteration   9: 4801089.957 ops/s
+Iteration  10: 4780957.745 ops/s
+
+# Run progress: 29.17% complete, ETA 04:16:05
+# Fork: 2 of 4
+# Warmup Iteration   1: 4703907.527 ops/s
+# Warmup Iteration   2: 4802599.357 ops/s
+# Warmup Iteration   3: 4810961.850 ops/s
+# Warmup Iteration   4: 4827961.864 ops/s
+# Warmup Iteration   5: 4807438.533 ops/s
+Iteration   1: 4830147.776 ops/s
+Iteration   2: 4816882.159 ops/s
+Iteration   3: 4816690.514 ops/s
+Iteration   4: 4823976.144 ops/s
+Iteration   5: 4832646.129 ops/s
+Iteration   6: 4820099.676 ops/s
+Iteration   7: 4826251.775 ops/s
+Iteration   8: 4819895.342 ops/s
+Iteration   9: 4807198.245 ops/s
+Iteration  10: 4825789.472 ops/s
+
+# Run progress: 30.56% complete, ETA 04:11:04
+# Fork: 3 of 4
+# Warmup Iteration   1: 4622570.263 ops/s
+# Warmup Iteration   2: 4884743.385 ops/s
+# Warmup Iteration   3: 4889940.486 ops/s
+# Warmup Iteration   4: 4898499.738 ops/s
+# Warmup Iteration   5: 4882790.271 ops/s
+Iteration   1: 4898268.766 ops/s
+Iteration   2: 4892497.666 ops/s
+Iteration   3: 4875337.900 ops/s
+Iteration   4: 4875973.398 ops/s
+Iteration   5: 4863793.465 ops/s
+Iteration   6: 4880203.053 ops/s
+Iteration   7: 4884735.034 ops/s
+Iteration   8: 4894596.126 ops/s
+Iteration   9: 4895521.230 ops/s
+Iteration  10: 4888520.838 ops/s
+
+# Run progress: 31.94% complete, ETA 04:06:03
+# Fork: 4 of 4
+# Warmup Iteration   1: 4437974.629 ops/s
+# Warmup Iteration   2: 4754902.920 ops/s
+# Warmup Iteration   3: 4763541.945 ops/s
+# Warmup Iteration   4: 4775438.629 ops/s
+# Warmup Iteration   5: 4771851.256 ops/s
+Iteration   1: 4763058.236 ops/s
+Iteration   2: 4763319.020 ops/s
+Iteration   3: 4762947.004 ops/s
+Iteration   4: 4764845.895 ops/s
+Iteration   5: 4761108.369 ops/s
+Iteration   6: 4750670.553 ops/s
+Iteration   7: 4754579.601 ops/s
+Iteration   8: 4772480.702 ops/s
+Iteration   9: 4768174.235 ops/s
+Iteration  10: 4773896.986 ops/s
+
+
+Result "groovyNoShellNoScriptNoBindingInOneCycle":
+  4821255.535 ±(99.9%) 25239.823 ops/s [Average]
+  (min, avg, max) = (4750670.553, 4821255.535, 4898268.766), stdev = 44863.764
+  CI (99.9%): [4796015.711, 4846495.358] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle
+
+# Run progress: 33.33% complete, ETA 04:01:02
+# Fork: 1 of 4
+# Warmup Iteration   1: 4268566.815 ops/s
+# Warmup Iteration   2: 5076634.774 ops/s
+# Warmup Iteration   3: 5107299.943 ops/s
+# Warmup Iteration   4: 5107385.656 ops/s
+# Warmup Iteration   5: 5102685.751 ops/s
+Iteration   1: 5110202.561 ops/s
+Iteration   2: 5098002.917 ops/s
+Iteration   3: 5101322.965 ops/s
+Iteration   4: 5107456.555 ops/s
+Iteration   5: 5092211.373 ops/s
+Iteration   6: 5105752.415 ops/s
+Iteration   7: 5106276.282 ops/s
+Iteration   8: 5099468.574 ops/s
+Iteration   9: 5112574.927 ops/s
+Iteration  10: 5096096.062 ops/s
+
+# Run progress: 34.72% complete, ETA 03:56:00
+# Fork: 2 of 4
+# Warmup Iteration   1: 4756448.508 ops/s
+# Warmup Iteration   2: 5088683.797 ops/s
+# Warmup Iteration   3: 5140461.804 ops/s
+# Warmup Iteration   4: 5127004.972 ops/s
+# Warmup Iteration   5: 5127977.904 ops/s
+Iteration   1: 5132263.231 ops/s
+Iteration   2: 5133670.747 ops/s
+Iteration   3: 5133151.354 ops/s
+Iteration   4: 5142025.428 ops/s
+Iteration   5: 5135730.517 ops/s
+Iteration   6: 5140724.775 ops/s
+Iteration   7: 5135135.188 ops/s
+Iteration   8: 5136744.695 ops/s
+Iteration   9: 5126354.928 ops/s
+Iteration  10: 5137705.466 ops/s
+
+# Run progress: 36.11% complete, ETA 03:50:59
+# Fork: 3 of 4
+# Warmup Iteration   1: 4550629.524 ops/s
+# Warmup Iteration   2: 4787221.370 ops/s
+# Warmup Iteration   3: 4793943.233 ops/s
+# Warmup Iteration   4: 4767916.706 ops/s
+# Warmup Iteration   5: 4772021.958 ops/s
+Iteration   1: 4789078.904 ops/s
+Iteration   2: 4796403.636 ops/s
+Iteration   3: 4798381.520 ops/s
+Iteration   4: 4808179.581 ops/s
+Iteration   5: 4802116.933 ops/s
+Iteration   6: 4802282.844 ops/s
+Iteration   7: 4799028.801 ops/s
+Iteration   8: 4813387.572 ops/s
+Iteration   9: 4812126.157 ops/s
+Iteration  10: 4805670.719 ops/s
+
+# Run progress: 37.50% complete, ETA 03:45:58
+# Fork: 4 of 4
+# Warmup Iteration   1: 4598287.057 ops/s
+# Warmup Iteration   2: 4780134.496 ops/s
+# Warmup Iteration   3: 4785891.944 ops/s
+# Warmup Iteration   4: 4795418.332 ops/s
+# Warmup Iteration   5: 4805437.100 ops/s
+Iteration   1: 4795298.477 ops/s
+Iteration   2: 4791193.890 ops/s
+Iteration   3: 4784324.054 ops/s
+Iteration   4: 4794879.200 ops/s
+Iteration   5: 4791587.216 ops/s
+Iteration   6: 4798525.836 ops/s
+Iteration   7: 4793224.540 ops/s
+Iteration   8: 4792552.644 ops/s
+Iteration   9: 4787120.497 ops/s
+Iteration  10: 4790732.143 ops/s
+
+
+Result "groovyNoShellNoScriptNoBindingNoMethodInOneCycle":
+  4958224.153 ±(99.9%) 91995.790 ops/s [Average]
+  (min, avg, max) = (4784324.054, 4958224.153, 5142025.428), stdev = 163522.436
+  CI (99.9%): [4866228.363, 5050219.943] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineInOneCycle
+
+# Run progress: 38.89% complete, ETA 03:40:57
+# Fork: 1 of 4
+# Warmup Iteration   1: 129043.417 ops/s
+# Warmup Iteration   2: 136201.593 ops/s
+# Warmup Iteration   3: 135851.272 ops/s
+# Warmup Iteration   4: 136092.516 ops/s
+# Warmup Iteration   5: 135178.521 ops/s
+Iteration   1: 135770.809 ops/s
+Iteration   2: 135719.596 ops/s
+Iteration   3: 135855.032 ops/s
+Iteration   4: 136338.468 ops/s
+Iteration   5: 136259.608 ops/s
+Iteration   6: 136244.613 ops/s
+Iteration   7: 135941.484 ops/s
+Iteration   8: 136242.489 ops/s
+Iteration   9: 136362.896 ops/s
+Iteration  10: 136388.766 ops/s
+
+# Run progress: 40.28% complete, ETA 03:35:55
+# Fork: 2 of 4
+# Warmup Iteration   1: 122608.692 ops/s
+# Warmup Iteration   2: 129215.789 ops/s
+# Warmup Iteration   3: 130342.703 ops/s
+# Warmup Iteration   4: 129818.960 ops/s
+# Warmup Iteration   5: 130189.542 ops/s
+Iteration   1: 129196.086 ops/s
+Iteration   2: 128924.985 ops/s
+Iteration   3: 128632.466 ops/s
+Iteration   4: 129963.214 ops/s
+Iteration   5: 130046.481 ops/s
+Iteration   6: 129320.315 ops/s
+Iteration   7: 129683.356 ops/s
+Iteration   8: 129564.694 ops/s
+Iteration   9: 129077.583 ops/s
+Iteration  10: 129487.135 ops/s
+
+# Run progress: 41.67% complete, ETA 03:30:54
+# Fork: 3 of 4
+# Warmup Iteration   1: 137521.921 ops/s
+# Warmup Iteration   2: 145145.273 ops/s
+# Warmup Iteration   3: 146628.850 ops/s
+# Warmup Iteration   4: 145208.018 ops/s
+# Warmup Iteration   5: 145006.409 ops/s
+Iteration   1: 145305.490 ops/s
+Iteration   2: 145781.056 ops/s
+Iteration   3: 145117.140 ops/s
+Iteration   4: 144865.198 ops/s
+Iteration   5: 144342.385 ops/s
+Iteration   6: 143725.184 ops/s
+Iteration   7: 144703.402 ops/s
+Iteration   8: 145462.390 ops/s
+Iteration   9: 145775.630 ops/s
+Iteration  10: 145668.808 ops/s
+
+# Run progress: 43.06% complete, ETA 03:25:52
+# Fork: 4 of 4
+# Warmup Iteration   1: 127008.351 ops/s
+# Warmup Iteration   2: 138550.818 ops/s
+# Warmup Iteration   3: 138924.508 ops/s
+# Warmup Iteration   4: 139085.618 ops/s
+# Warmup Iteration   5: 138399.202 ops/s
+Iteration   1: 137289.912 ops/s
+Iteration   2: 137380.337 ops/s
+Iteration   3: 136945.458 ops/s
+Iteration   4: 137428.223 ops/s
+Iteration   5: 137803.937 ops/s
+Iteration   6: 137408.827 ops/s
+Iteration   7: 137830.216 ops/s
+Iteration   8: 137680.785 ops/s
+Iteration   9: 136831.703 ops/s
+Iteration  10: 138843.535 ops/s
+
+
+Result "groovyNoEngineInOneCycle":
+  137030.242 ±(99.9%) 3186.743 ops/s [Average]
+  (min, avg, max) = (128632.466, 137030.242, 145781.056), stdev = 5664.433
+  CI (99.9%): [133843.499, 140216.986] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineNoScriptInOneCycle
+
+# Run progress: 44.44% complete, ETA 03:20:50
+# Fork: 1 of 4
+# Warmup Iteration   1: 132987.409 ops/s
+# Warmup Iteration   2: 137279.377 ops/s
+# Warmup Iteration   3: 141258.808 ops/s
+# Warmup Iteration   4: 140891.163 ops/s
+# Warmup Iteration   5: 140006.242 ops/s
+Iteration   1: 138605.820 ops/s
+Iteration   2: 137746.417 ops/s
+Iteration   3: 136073.748 ops/s
+Iteration   4: 137279.095 ops/s
+Iteration   5: 136889.174 ops/s
+Iteration   6: 135741.176 ops/s
+Iteration   7: 135893.769 ops/s
+Iteration   8: 136680.035 ops/s
+Iteration   9: 137245.877 ops/s
+Iteration  10: 137539.283 ops/s
+
+# Run progress: 45.83% complete, ETA 03:15:49
+# Fork: 2 of 4
+# Warmup Iteration   1: 128326.074 ops/s
+# Warmup Iteration   2: 133950.052 ops/s
+# Warmup Iteration   3: 135105.151 ops/s
+# Warmup Iteration   4: 133953.976 ops/s
+# Warmup Iteration   5: 134472.405 ops/s
+Iteration   1: 134239.106 ops/s
+Iteration   2: 134383.464 ops/s
+Iteration   3: 135228.208 ops/s
+Iteration   4: 134514.611 ops/s
+Iteration   5: 133801.651 ops/s
+Iteration   6: 134461.792 ops/s
+Iteration   7: 134324.874 ops/s
+Iteration   8: 134617.817 ops/s
+Iteration   9: 134825.303 ops/s
+Iteration  10: 134915.043 ops/s
+
+# Run progress: 47.22% complete, ETA 03:10:47
+# Fork: 3 of 4
+# Warmup Iteration   1: 127538.604 ops/s
+# Warmup Iteration   2: 134622.098 ops/s
+# Warmup Iteration   3: 134672.186 ops/s
+# Warmup Iteration   4: 133567.945 ops/s
+# Warmup Iteration   5: 134681.649 ops/s
+Iteration   1: 136450.376 ops/s
+Iteration   2: 134697.886 ops/s
+Iteration   3: 136169.859 ops/s
+Iteration   4: 135374.576 ops/s
+Iteration   5: 133803.760 ops/s
+Iteration   6: 135893.519 ops/s
+Iteration   7: 136941.989 ops/s
+Iteration   8: 136364.398 ops/s
+Iteration   9: 134803.751 ops/s
+Iteration  10: 134555.748 ops/s
+
+# Run progress: 48.61% complete, ETA 03:05:46
+# Fork: 4 of 4
+# Warmup Iteration   1: 128114.322 ops/s
+# Warmup Iteration   2: 135140.222 ops/s
+# Warmup Iteration   3: 135111.626 ops/s
+# Warmup Iteration   4: 134359.386 ops/s
+# Warmup Iteration   5: 134317.806 ops/s
+Iteration   1: 134577.058 ops/s
+Iteration   2: 135207.688 ops/s
+Iteration   3: 135068.667 ops/s
+Iteration   4: 135346.029 ops/s
+Iteration   5: 135141.979 ops/s
+Iteration   6: 134868.795 ops/s
+Iteration   7: 135180.906 ops/s
+Iteration   8: 135626.881 ops/s
+Iteration   9: 135276.613 ops/s
+Iteration  10: 135545.388 ops/s
+
+
+Result "groovyNoEngineNoScriptInOneCycle":
+  135547.553 ±(99.9%) 641.629 ops/s [Average]
+  (min, avg, max) = (133801.651, 135547.553, 138605.820), stdev = 1140.495
+  CI (99.9%): [134905.924, 136189.182] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineNoScriptLessBindingInOneCycle
+
+# Run progress: 50.00% complete, ETA 03:00:44
+# Fork: 1 of 4
+# Warmup Iteration   1: 203048.202 ops/s
+# Warmup Iteration   2: 209971.368 ops/s
+# Warmup Iteration   3: 211073.090 ops/s
+# Warmup Iteration   4: 210862.351 ops/s
+# Warmup Iteration   5: 211076.180 ops/s
+Iteration   1: 211351.187 ops/s
+Iteration   2: 210437.186 ops/s
+Iteration   3: 211336.779 ops/s
+Iteration   4: 211194.012 ops/s
+Iteration   5: 210813.969 ops/s
+Iteration   6: 210914.510 ops/s
+Iteration   7: 211137.361 ops/s
+Iteration   8: 211318.168 ops/s
+Iteration   9: 210838.259 ops/s
+Iteration  10: 211306.268 ops/s
+
+# Run progress: 51.39% complete, ETA 02:55:43
+# Fork: 2 of 4
+# Warmup Iteration   1: 205495.530 ops/s
+# Warmup Iteration   2: 212504.242 ops/s
+# Warmup Iteration   3: 212886.007 ops/s
+# Warmup Iteration   4: 213611.921 ops/s
+# Warmup Iteration   5: 213666.845 ops/s
+Iteration   1: 213882.545 ops/s
+Iteration   2: 213968.788 ops/s
+Iteration   3: 213836.685 ops/s
+Iteration   4: 214085.563 ops/s
+Iteration   5: 214168.658 ops/s
+Iteration   6: 214265.059 ops/s
+Iteration   7: 214153.760 ops/s
+Iteration   8: 214147.260 ops/s
+Iteration   9: 214277.481 ops/s
+Iteration  10: 214475.175 ops/s
+
+# Run progress: 52.78% complete, ETA 02:50:42
+# Fork: 3 of 4
+# Warmup Iteration   1: 205977.263 ops/s
+# Warmup Iteration   2: 212103.427 ops/s
+# Warmup Iteration   3: 212352.591 ops/s
+# Warmup Iteration   4: 212465.361 ops/s
+# Warmup Iteration   5: 212116.053 ops/s
+Iteration   1: 212152.820 ops/s
+Iteration   2: 211803.864 ops/s
+Iteration   3: 212547.578 ops/s
+Iteration   4: 210694.050 ops/s
+Iteration   5: 212181.986 ops/s
+Iteration   6: 212561.423 ops/s
+Iteration   7: 212427.819 ops/s
+Iteration   8: 212851.619 ops/s
+Iteration   9: 212203.068 ops/s
+Iteration  10: 211973.001 ops/s
+
+# Run progress: 54.17% complete, ETA 02:45:40
+# Fork: 4 of 4
+# Warmup Iteration   1: 201254.121 ops/s
+# Warmup Iteration   2: 215568.430 ops/s
+# Warmup Iteration   3: 215533.457 ops/s
+# Warmup Iteration   4: 215181.124 ops/s
+# Warmup Iteration   5: 215913.597 ops/s
+Iteration   1: 215146.495 ops/s
+Iteration   2: 214927.246 ops/s
+Iteration   3: 215265.719 ops/s
+Iteration   4: 215286.108 ops/s
+Iteration   5: 215692.978 ops/s
+Iteration   6: 215317.986 ops/s
+Iteration   7: 215796.886 ops/s
+Iteration   8: 215570.721 ops/s
+Iteration   9: 216021.625 ops/s
+Iteration  10: 215211.636 ops/s
+
+
+Result "groovyNoEngineNoScriptLessBindingInOneCycle":
+  213188.583 ±(99.9%) 987.700 ops/s [Average]
+  (min, avg, max) = (210437.186, 213188.583, 216021.625), stdev = 1755.636
+  CI (99.9%): [212200.883, 214176.283] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.scriptinheritance.ScriptInheritanceBenchmark.groovyNoCompileCustomBinding
+
+# Run progress: 55.56% complete, ETA 02:40:39
+# Fork: 1 of 4
+# Warmup Iteration   1: 3111013.580 ops/s
+# Warmup Iteration   2: 3269598.395 ops/s
+# Warmup Iteration   3: 3281856.531 ops/s
+# Warmup Iteration   4: 3277580.002 ops/s
+# Warmup Iteration   5: 3273523.088 ops/s
+Iteration   1: 3286071.613 ops/s
+Iteration   2: 3276089.612 ops/s
+Iteration   3: 3284849.240 ops/s
+Iteration   4: 3258917.394 ops/s
+Iteration   5: 3263301.453 ops/s
+Iteration   6: 3268800.958 ops/s
+Iteration   7: 3283387.808 ops/s
+Iteration   8: 3278194.328 ops/s
+Iteration   9: 3282229.838 ops/s
+Iteration  10: 3285903.733 ops/s
+
+# Run progress: 56.94% complete, ETA 02:35:38
+# Fork: 2 of 4
+# Warmup Iteration   1: 3137160.824 ops/s
+# Warmup Iteration   2: 3307628.773 ops/s
+# Warmup Iteration   3: 3315714.250 ops/s
+# Warmup Iteration   4: 3300535.055 ops/s
+# Warmup Iteration   5: 3309874.214 ops/s
+Iteration   1: 3332133.066 ops/s
+Iteration   2: 3318895.658 ops/s
+Iteration   3: 3323253.541 ops/s
+Iteration   4: 3321434.599 ops/s
+Iteration   5: 3326006.622 ops/s
+Iteration   6: 3329395.645 ops/s
+Iteration   7: 3317397.550 ops/s
+Iteration   8: 3317710.553 ops/s
+Iteration   9: 3324608.556 ops/s
+Iteration  10: 3323692.047 ops/s
+
+# Run progress: 58.33% complete, ETA 02:30:37
+# Fork: 3 of 4
+# Warmup Iteration   1: 3113539.337 ops/s
+# Warmup Iteration   2: 3277169.645 ops/s
+# Warmup Iteration   3: 3270333.133 ops/s
+# Warmup Iteration   4: 3266022.857 ops/s
+# Warmup Iteration   5: 3276969.981 ops/s
+Iteration   1: 3276855.794 ops/s
+Iteration   2: 3270671.503 ops/s
+Iteration   3: 3280772.013 ops/s
+Iteration   4: 3272200.018 ops/s
+Iteration   5: 3277191.884 ops/s
+Iteration   6: 3276381.839 ops/s
+Iteration   7: 3273686.908 ops/s
+Iteration   8: 3275239.980 ops/s
+Iteration   9: 3279231.598 ops/s
+Iteration  10: 3281840.453 ops/s
+
+# Run progress: 59.72% complete, ETA 02:25:35
+# Fork: 4 of 4
+# Warmup Iteration   1: 3051177.894 ops/s
+# Warmup Iteration   2: 3194077.022 ops/s
+# Warmup Iteration   3: 3205192.189 ops/s
+# Warmup Iteration   4: 3190762.237 ops/s
+# Warmup Iteration   5: 3207445.165 ops/s
+Iteration   1: 3206223.669 ops/s
+Iteration   2: 3200399.534 ops/s
+Iteration   3: 3200316.234 ops/s
+Iteration   4: 3205193.867 ops/s
+Iteration   5: 3210001.581 ops/s
+Iteration   6: 3196743.212 ops/s
+Iteration   7: 3198982.413 ops/s
+Iteration   8: 3200706.012 ops/s
+Iteration   9: 3204575.170 ops/s
+Iteration  10: 3191941.573 ops/s
+
+
+Result "groovyNoCompileCustomBinding":
+  3269535.727 ±(99.9%) 25125.812 ops/s [Average]
+  (min, avg, max) = (3191941.573, 3269535.727, 3332133.066), stdev = 44661.110
+  CI (99.9%): [3244409.914, 3294661.539] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.staticcompilation.StaticCompilationBenchmark.testStaticCompiledScript
+
+# Run progress: 61.11% complete, ETA 02:20:34
+# Fork: 1 of 4
+# Warmup Iteration   1: 11232007.159 ops/s
+# Warmup Iteration   2: 12154835.655 ops/s
+# Warmup Iteration   3: 12267535.892 ops/s
+# Warmup Iteration   4: 12218728.210 ops/s
+# Warmup Iteration   5: 12266432.320 ops/s
+Iteration   1: 12247467.639 ops/s
+Iteration   2: 12238174.823 ops/s
+Iteration   3: 12282957.172 ops/s
+Iteration   4: 12238600.738 ops/s
+Iteration   5: 12250993.942 ops/s
+Iteration   6: 12264059.031 ops/s
+Iteration   7: 12271015.018 ops/s
+Iteration   8: 12258545.502 ops/s
+Iteration   9: 12258905.198 ops/s
+Iteration  10: 12267441.679 ops/s
+
+# Run progress: 62.50% complete, ETA 02:15:33
+# Fork: 2 of 4
+# Warmup Iteration   1: 12877389.246 ops/s
+# Warmup Iteration   2: 12674418.829 ops/s
+# Warmup Iteration   3: 12586088.294 ops/s
+# Warmup Iteration   4: 12681343.711 ops/s
+# Warmup Iteration   5: 12686591.691 ops/s
+Iteration   1: 12672359.813 ops/s
+Iteration   2: 12639500.309 ops/s
+Iteration   3: 12673223.592 ops/s
+Iteration   4: 12678303.694 ops/s
+Iteration   5: 12683698.622 ops/s
+Iteration   6: 12690855.730 ops/s
+Iteration   7: 12690612.104 ops/s
+Iteration   8: 12639225.653 ops/s
+Iteration   9: 12659141.711 ops/s
+Iteration  10: 12702108.034 ops/s
+
+# Run progress: 63.89% complete, ETA 02:10:32
+# Fork: 3 of 4
+# Warmup Iteration   1: 11454678.032 ops/s
+# Warmup Iteration   2: 12772306.519 ops/s
+# Warmup Iteration   3: 12742353.528 ops/s
+# Warmup Iteration   4: 12667502.882 ops/s
+# Warmup Iteration   5: 12701398.697 ops/s
+Iteration   1: 12734118.960 ops/s
+Iteration   2: 12723667.968 ops/s
+Iteration   3: 12747626.924 ops/s
+Iteration   4: 12726832.867 ops/s
+Iteration   5: 12704500.325 ops/s
+Iteration   6: 12741126.494 ops/s
+Iteration   7: 12739688.505 ops/s
+Iteration   8: 12731378.740 ops/s
+Iteration   9: 12762018.842 ops/s
+Iteration  10: 12723693.485 ops/s
+
+# Run progress: 65.28% complete, ETA 02:05:31
+# Fork: 4 of 4
+# Warmup Iteration   1: 11416159.177 ops/s
+# Warmup Iteration   2: 12465978.293 ops/s
+# Warmup Iteration   3: 12382718.029 ops/s
+# Warmup Iteration   4: 12394725.715 ops/s
+# Warmup Iteration   5: 12451370.115 ops/s
+Iteration   1: 12397789.231 ops/s
+Iteration   2: 12431257.770 ops/s
+Iteration   3: 12469446.832 ops/s
+Iteration   4: 12475919.606 ops/s
+Iteration   5: 12468657.701 ops/s
+Iteration   6: 12487535.886 ops/s
+Iteration   7: 12453222.373 ops/s
+Iteration   8: 12463228.928 ops/s
+Iteration   9: 12467738.113 ops/s
+Iteration  10: 12494692.572 ops/s
+
+
+Result "testStaticCompiledScript":
+  12531283.303 ±(99.9%) 107423.687 ops/s [Average]
+  (min, avg, max) = (12238174.823, 12531283.303, 12762018.842), stdev = 190945.510
+  CI (99.9%): [12423859.616, 12638706.990] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.typedscript.TypedScriptBenchmark.groovyNoShellNoCompile
+
+# Run progress: 66.67% complete, ETA 02:00:30
+# Fork: 1 of 4
+# Warmup Iteration   1: 4464459.194 ops/s
+# Warmup Iteration   2: 4682854.424 ops/s
+# Warmup Iteration   3: 4670426.032 ops/s
+# Warmup Iteration   4: 4660972.650 ops/s
+# Warmup Iteration   5: 4690511.558 ops/s
+Iteration   1: 4655353.431 ops/s
+Iteration   2: 4683003.273 ops/s
+Iteration   3: 4668967.783 ops/s
+Iteration   4: 4673058.863 ops/s
+Iteration   5: 4669940.159 ops/s
+Iteration   6: 4674468.240 ops/s
+Iteration   7: 4671510.107 ops/s
+Iteration   8: 4672982.923 ops/s
+Iteration   9: 4651990.483 ops/s
+Iteration  10: 4651956.528 ops/s
+
+# Run progress: 68.06% complete, ETA 01:55:29
+# Fork: 2 of 4
+# Warmup Iteration   1: 4396294.236 ops/s
+# Warmup Iteration   2: 4568547.424 ops/s
+# Warmup Iteration   3: 4592794.650 ops/s
+# Warmup Iteration   4: 4569107.110 ops/s
+# Warmup Iteration   5: 4577439.814 ops/s
+Iteration   1: 4578255.638 ops/s
+Iteration   2: 4582050.076 ops/s
+Iteration   3: 4586570.427 ops/s
+Iteration   4: 4588004.659 ops/s
+Iteration   5: 4584420.556 ops/s
+Iteration   6: 4593470.700 ops/s
+Iteration   7: 4584483.143 ops/s
+Iteration   8: 4577007.058 ops/s
+Iteration   9: 4591659.637 ops/s
+Iteration  10: 4581697.087 ops/s
+
+# Run progress: 69.44% complete, ETA 01:50:28
+# Fork: 3 of 4
+# Warmup Iteration   1: 4454781.448 ops/s
+# Warmup Iteration   2: 4640833.043 ops/s
+# Warmup Iteration   3: 4634830.525 ops/s
+# Warmup Iteration   4: 4637017.774 ops/s
+# Warmup Iteration   5: 4639704.460 ops/s
+Iteration   1: 4639842.041 ops/s
+Iteration   2: 4643564.813 ops/s
+Iteration   3: 4642058.133 ops/s
+Iteration   4: 4641175.212 ops/s
+Iteration   5: 4636017.146 ops/s
+Iteration   6: 4639021.169 ops/s
+Iteration   7: 4640798.727 ops/s
+Iteration   8: 4617840.485 ops/s
+Iteration   9: 4616730.792 ops/s
+Iteration  10: 4619051.107 ops/s
+
+# Run progress: 70.83% complete, ETA 01:45:26
+# Fork: 4 of 4
+# Warmup Iteration   1: 4633694.012 ops/s
+# Warmup Iteration   2: 4854720.702 ops/s
+# Warmup Iteration   3: 4865739.604 ops/s
+# Warmup Iteration   4: 4879522.954 ops/s
+# Warmup Iteration   5: 4878813.120 ops/s
+Iteration   1: 4870287.048 ops/s
+Iteration   2: 4872693.059 ops/s
+Iteration   3: 4876225.168 ops/s
+Iteration   4: 4887457.019 ops/s
+Iteration   5: 4868273.436 ops/s
+Iteration   6: 4876473.313 ops/s
+Iteration   7: 4869931.311 ops/s
+Iteration   8: 4867003.843 ops/s
+Iteration   9: 4870210.550 ops/s
+Iteration  10: 4866847.368 ops/s
+
+
+Result "groovyNoShellNoCompile":
+  4689558.813 ±(99.9%) 62647.290 ops/s [Average]
+  (min, avg, max) = (4577007.058, 4689558.813, 4887457.019), stdev = 111355.503
+  CI (99.9%): [4626911.523, 4752206.103] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.groovyscript.typedscript.TypedScriptBenchmark.groovyNoShellNoCompileNoInstantiate
+
+# Run progress: 72.22% complete, ETA 01:40:25
+# Fork: 1 of 4
+# Warmup Iteration   1: 4736978.821 ops/s
+# Warmup Iteration   2: 4940803.865 ops/s
+# Warmup Iteration   3: 4952759.463 ops/s
+# Warmup Iteration   4: 4944261.533 ops/s
+# Warmup Iteration   5: 4954529.071 ops/s
+Iteration   1: 4946370.567 ops/s
+Iteration   2: 4951908.407 ops/s
+Iteration   3: 4944875.993 ops/s
+Iteration   4: 4945929.146 ops/s
+Iteration   5: 4943776.290 ops/s
+Iteration   6: 4938127.204 ops/s
+Iteration   7: 4938176.665 ops/s
+Iteration   8: 4952042.697 ops/s
+Iteration   9: 4949476.458 ops/s
+Iteration  10: 4960101.121 ops/s
+
+# Run progress: 73.61% complete, ETA 01:35:24
+# Fork: 2 of 4
+# Warmup Iteration   1: 4882853.387 ops/s
+# Warmup Iteration   2: 5072819.044 ops/s
+# Warmup Iteration   3: 5087877.619 ops/s
+# Warmup Iteration   4: 5094412.258 ops/s
+# Warmup Iteration   5: 5083550.157 ops/s
+Iteration   1: 5082027.039 ops/s
+Iteration   2: 5077751.955 ops/s
+Iteration   3: 5075744.052 ops/s
+Iteration   4: 5081755.069 ops/s
+Iteration   5: 5082655.828 ops/s
+Iteration   6: 5084514.208 ops/s
+Iteration   7: 5073360.329 ops/s
+Iteration   8: 5087054.761 ops/s
+Iteration   9: 5077981.822 ops/s
+Iteration  10: 5077191.925 ops/s
+
+# Run progress: 75.00% complete, ETA 01:30:23
+# Fork: 3 of 4
+# Warmup Iteration   1: 4812082.108 ops/s
+# Warmup Iteration   2: 5030216.123 ops/s
+# Warmup Iteration   3: 5044605.606 ops/s
+# Warmup Iteration   4: 5040030.287 ops/s
+# Warmup Iteration   5: 5046846.507 ops/s
+Iteration   1: 5030954.324 ops/s
+Iteration   2: 5042226.217 ops/s
+Iteration   3: 5038126.124 ops/s
+Iteration   4: 5036476.153 ops/s
+Iteration   5: 5035214.080 ops/s
+Iteration   6: 5048878.703 ops/s
+Iteration   7: 5042816.130 ops/s
+Iteration   8: 5043110.984 ops/s
+Iteration   9: 5042360.351 ops/s
+Iteration  10: 5043379.165 ops/s
+
+# Run progress: 76.39% complete, ETA 01:25:21
+# Fork: 4 of 4
+# Warmup Iteration   1: 4960315.651 ops/s
+# Warmup Iteration   2: 5212616.878 ops/s
+# Warmup Iteration   3: 5213820.243 ops/s
+# Warmup Iteration   4: 5205023.338 ops/s
+# Warmup Iteration   5: 5218827.766 ops/s
+Iteration   1: 5209754.605 ops/s
+Iteration   2: 5225731.288 ops/s
+Iteration   3: 5218022.382 ops/s
+Iteration   4: 5220893.935 ops/s
+Iteration   5: 5211317.962 ops/s
+Iteration   6: 5217569.168 ops/s
+Iteration   7: 5224426.785 ops/s
+Iteration   8: 5219739.905 ops/s
+Iteration   9: 5220085.121 ops/s
+Iteration  10: 5206863.391 ops/s
+
+
+Result "groovyNoShellNoCompileNoInstantiate":
+  5071219.208 ±(99.9%) 55486.532 ops/s [Average]
+  (min, avg, max) = (4938127.204, 5071219.208, 5225731.288), stdev = 98627.261
+  CI (99.9%): [5015732.676, 5126705.739] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.template.TemplateBenchmark.templateNoCompilation
+
+# Run progress: 77.78% complete, ETA 01:20:20
+# Fork: 1 of 4
+# Warmup Iteration   1: 1306122.713 ops/s
+# Warmup Iteration   2: 1380320.968 ops/s
+# Warmup Iteration   3: 1381865.755 ops/s
+# Warmup Iteration   4: 1383186.010 ops/s
+# Warmup Iteration   5: 1381676.581 ops/s
+Iteration   1: 1381339.902 ops/s
+Iteration   2: 1385081.816 ops/s
+Iteration   3: 1388206.292 ops/s
+Iteration   4: 1387454.511 ops/s
+Iteration   5: 1388560.094 ops/s
+Iteration   6: 1387196.046 ops/s
+Iteration   7: 1387434.496 ops/s
+Iteration   8: 1385943.973 ops/s
+Iteration   9: 1386944.012 ops/s
+Iteration  10: 1382488.822 ops/s
+
+# Run progress: 79.17% complete, ETA 01:15:19
+# Fork: 2 of 4
+# Warmup Iteration   1: 1349263.339 ops/s
+# Warmup Iteration   2: 1392265.412 ops/s
+# Warmup Iteration   3: 1408877.976 ops/s
+# Warmup Iteration   4: 1407237.928 ops/s
+# Warmup Iteration   5: 1404251.920 ops/s
+Iteration   1: 1405589.187 ops/s
+Iteration   2: 1405284.579 ops/s
+Iteration   3: 1403714.709 ops/s
+Iteration   4: 1401479.690 ops/s
+Iteration   5: 1402420.224 ops/s
+Iteration   6: 1401202.052 ops/s
+Iteration   7: 1400178.972 ops/s
+Iteration   8: 1402879.220 ops/s
+Iteration   9: 1401126.493 ops/s
+Iteration  10: 1402599.216 ops/s
+
+# Run progress: 80.56% complete, ETA 01:10:17
+# Fork: 3 of 4
+# Warmup Iteration   1: 1167919.606 ops/s
+# Warmup Iteration   2: 1398833.894 ops/s
+# Warmup Iteration   3: 1400298.478 ops/s
+# Warmup Iteration   4: 1398512.252 ops/s
+# Warmup Iteration   5: 1399104.447 ops/s
+Iteration   1: 1396293.412 ops/s
+Iteration   2: 1397639.320 ops/s
+Iteration   3: 1397554.813 ops/s
+Iteration   4: 1395883.507 ops/s
+Iteration   5: 1396401.681 ops/s
+Iteration   6: 1395331.020 ops/s
+Iteration   7: 1398025.148 ops/s
+Iteration   8: 1399797.565 ops/s
+Iteration   9: 1400304.879 ops/s
+Iteration  10: 1399382.647 ops/s
+
+# Run progress: 81.94% complete, ETA 01:05:16
+# Fork: 4 of 4
+# Warmup Iteration   1: 1316800.216 ops/s
+# Warmup Iteration   2: 1363175.881 ops/s
+# Warmup Iteration   3: 1355737.574 ops/s
+# Warmup Iteration   4: 1361493.120 ops/s
+# Warmup Iteration   5: 1360886.768 ops/s
+Iteration   1: 1356837.151 ops/s
+Iteration   2: 1361504.967 ops/s
+Iteration   3: 1358958.870 ops/s
+Iteration   4: 1361723.583 ops/s
+Iteration   5: 1358122.042 ops/s
+Iteration   6: 1360606.889 ops/s
+Iteration   7: 1357472.090 ops/s
+Iteration   8: 1359782.790 ops/s
+Iteration   9: 1360069.424 ops/s
+Iteration  10: 1359676.747 ops/s
+
+
+Result "templateNoCompilation":
+  1386462.321 ±(99.9%) 9572.253 ops/s [Average]
+  (min, avg, max) = (1356837.151, 1386462.321, 1405589.187), stdev = 17014.671
+  CI (99.9%): [1376890.068, 1396034.574] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.template.TemplateBenchmark.templateNoCompilationCustomParser
+
+# Run progress: 83.33% complete, ETA 01:00:15
+# Fork: 1 of 4
+# Warmup Iteration   1: 1614624.273 ops/s
+# Warmup Iteration   2: 1716876.003 ops/s
+# Warmup Iteration   3: 1720890.987 ops/s
+# Warmup Iteration   4: 1721782.692 ops/s
+# Warmup Iteration   5: 1718766.527 ops/s
+Iteration   1: 1717386.210 ops/s
+Iteration   2: 1721527.142 ops/s
+Iteration   3: 1719983.579 ops/s
+Iteration   4: 1720079.516 ops/s
+Iteration   5: 1721571.355 ops/s
+Iteration   6: 1720504.632 ops/s
+Iteration   7: 1722176.481 ops/s
+Iteration   8: 1720970.582 ops/s
+Iteration   9: 1719784.110 ops/s
+Iteration  10: 1723905.928 ops/s
+
+# Run progress: 84.72% complete, ETA 00:55:14
+# Fork: 2 of 4
+# Warmup Iteration   1: 1470961.578 ops/s
+# Warmup Iteration   2: 1547764.135 ops/s
+# Warmup Iteration   3: 1547321.222 ops/s
+# Warmup Iteration   4: 1548287.215 ops/s
+# Warmup Iteration   5: 1549786.905 ops/s
+Iteration   1: 1548587.291 ops/s
+Iteration   2: 1553529.407 ops/s
+Iteration   3: 1548682.798 ops/s
+Iteration   4: 1549309.320 ops/s
+Iteration   5: 1553331.536 ops/s
+Iteration   6: 1553492.767 ops/s
+Iteration   7: 1548143.354 ops/s
+Iteration   8: 1552811.022 ops/s
+Iteration   9: 1551938.630 ops/s
+Iteration  10: 1551920.023 ops/s
+
+# Run progress: 86.11% complete, ETA 00:50:12
+# Fork: 3 of 4
+# Warmup Iteration   1: 1420251.979 ops/s
+# Warmup Iteration   2: 1526366.086 ops/s
+# Warmup Iteration   3: 1537975.804 ops/s
+# Warmup Iteration   4: 1536290.143 ops/s
+# Warmup Iteration   5: 1533483.707 ops/s
+Iteration   1: 1535526.627 ops/s
+Iteration   2: 1537783.503 ops/s
+Iteration   3: 1540955.838 ops/s
+Iteration   4: 1538706.707 ops/s
+Iteration   5: 1537801.216 ops/s
+Iteration   6: 1536291.205 ops/s
+Iteration   7: 1537161.136 ops/s
+Iteration   8: 1537848.113 ops/s
+Iteration   9: 1540385.646 ops/s
+Iteration  10: 1534744.655 ops/s
+
+# Run progress: 87.50% complete, ETA 00:45:11
+# Fork: 4 of 4
+# Warmup Iteration   1: 1514171.914 ops/s
+# Warmup Iteration   2: 1569711.868 ops/s
+# Warmup Iteration   3: 1568050.232 ops/s
+# Warmup Iteration   4: 1568800.639 ops/s
+# Warmup Iteration   5: 1571166.608 ops/s
+Iteration   1: 1564416.048 ops/s
+Iteration   2: 1569246.787 ops/s
+Iteration   3: 1566327.528 ops/s
+Iteration   4: 1567722.568 ops/s
+Iteration   5: 1565798.013 ops/s
+Iteration   6: 1567231.497 ops/s
+Iteration   7: 1568060.595 ops/s
+Iteration   8: 1569001.864 ops/s
+Iteration   9: 1568611.413 ops/s
+Iteration  10: 1564323.747 ops/s
+
+
+Result "templateNoCompilationCustomParser":
+  1594189.510 ±(99.9%) 42076.362 ops/s [Average]
+  (min, avg, max) = (1534744.655, 1594189.510, 1723905.928), stdev = 74790.696
+  CI (99.9%): [1552113.148, 1636265.871] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.groovy.template.TemplateBenchmark.templateNoCompilationCustomParserTyped
+
+# Run progress: 88.89% complete, ETA 00:40:10
+# Fork: 1 of 4
+# Warmup Iteration   1: 1940170.622 ops/s
+# Warmup Iteration   2: 2040527.564 ops/s
+# Warmup Iteration   3: 2052220.787 ops/s
+# Warmup Iteration   4: 2048789.325 ops/s
+# Warmup Iteration   5: 2038409.217 ops/s
+Iteration   1: 2044405.112 ops/s
+Iteration   2: 2041505.602 ops/s
+Iteration   3: 2045967.995 ops/s
+Iteration   4: 2043165.415 ops/s
+Iteration   5: 2043759.027 ops/s
+Iteration   6: 2043462.741 ops/s
+Iteration   7: 2045948.080 ops/s
+Iteration   8: 2049517.798 ops/s
+Iteration   9: 2049012.347 ops/s
+Iteration  10: 2042381.300 ops/s
+
+# Run progress: 90.28% complete, ETA 00:35:08
+# Fork: 2 of 4
+# Warmup Iteration   1: 2030554.014 ops/s
+# Warmup Iteration   2: 2127732.589 ops/s
+# Warmup Iteration   3: 2140498.089 ops/s
+# Warmup Iteration   4: 2139073.927 ops/s
+# Warmup Iteration   5: 2135548.922 ops/s
+Iteration   1: 2135758.698 ops/s
+Iteration   2: 2145850.416 ops/s
+Iteration   3: 2136946.361 ops/s
+Iteration   4: 2139041.548 ops/s
+Iteration   5: 2137730.795 ops/s
+Iteration   6: 2139177.827 ops/s
+Iteration   7: 2136805.739 ops/s
+Iteration   8: 2137185.414 ops/s
+Iteration   9: 2133837.867 ops/s
+Iteration  10: 2144419.786 ops/s
+
+# Run progress: 91.67% complete, ETA 00:30:07
+# Fork: 3 of 4
+# Warmup Iteration   1: 1802471.223 ops/s
+# Warmup Iteration   2: 1875918.505 ops/s
+# Warmup Iteration   3: 1899079.712 ops/s
+# Warmup Iteration   4: 1898712.139 ops/s
+# Warmup Iteration   5: 1895587.510 ops/s
+Iteration   1: 1907388.034 ops/s
+Iteration   2: 1904184.492 ops/s
+Iteration   3: 1904996.214 ops/s
+Iteration   4: 1901897.732 ops/s
+Iteration   5: 1900570.539 ops/s
+Iteration   6: 1900711.088 ops/s
+Iteration   7: 1903688.830 ops/s
+Iteration   8: 1903080.507 ops/s
+Iteration   9: 1903917.738 ops/s
+Iteration  10: 1900958.641 ops/s
+
+# Run progress: 93.06% complete, ETA 00:25:06
+# Fork: 4 of 4
+# Warmup Iteration   1: 1817194.869 ops/s
+# Warmup Iteration   2: 1905983.734 ops/s
+# Warmup Iteration   3: 1906036.120 ops/s
+# Warmup Iteration   4: 1907808.362 ops/s
+# Warmup Iteration   5: 1905143.228 ops/s
+Iteration   1: 1902210.468 ops/s
+Iteration   2: 1903911.927 ops/s
+Iteration   3: 1906982.454 ops/s
+Iteration   4: 1913531.849 ops/s
+Iteration   5: 1912461.283 ops/s
+Iteration   6: 1905304.816 ops/s
+Iteration   7: 1909635.609 ops/s
+Iteration   8: 1907791.753 ops/s
+Iteration   9: 1907311.646 ops/s
+Iteration  10: 1903615.630 ops/s
+
+
+Result "templateNoCompilationCustomParserTyped":
+  1998500.778 ±(99.9%) 56442.280 ops/s [Average]
+  (min, avg, max) = (1900570.539, 1998500.778, 2145850.416), stdev = 100326.103
+  CI (99.9%): [1942058.498, 2054943.058] (assumes normal distribution)
+
+
+# JMH 1.12 (released 63 days ago)
+# VM version: JDK 1.8.0_91, VM 25.91-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 20 s each
+# Measurement: 10 iterations, 20 s each
+# Timeout: 10 min per iteration
+# Threads: 8 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.focusit.java.JavaBenchmark.vanillaJava
+
+# Run progress: 94.44% complete, ETA 00:20:05
+# Fork: 1 of 4
+# Warmup Iteration   1: 38860733.747 ops/s
+# Warmup Iteration   2: 39229828.448 ops/s
+# Warmup Iteration   3: 38543853.900 ops/s
+# Warmup Iteration   4: 39358742.498 ops/s
+# Warmup Iteration   5: 39284205.616 ops/s
+Iteration   1: 39370552.440 ops/s
+Iteration   2: 39369894.001 ops/s
+Iteration   3: 39402620.922 ops/s
+Iteration   4: 39246231.324 ops/s
+Iteration   5: 39348801.210 ops/s
+Iteration   6: 39359904.747 ops/s
+Iteration   7: 39360748.129 ops/s
+Iteration   8: 39230730.407 ops/s
+Iteration   9: 39299582.856 ops/s
+Iteration  10: 39350734.547 ops/s
+
+# Run progress: 95.83% complete, ETA 00:15:03
+# Fork: 2 of 4
+# Warmup Iteration   1: 23299064.555 ops/s
+# Warmup Iteration   2: 23337162.704 ops/s
+# Warmup Iteration   3: 23326821.402 ops/s
+# Warmup Iteration   4: 23257965.853 ops/s
+# Warmup Iteration   5: 23366531.647 ops/s
+Iteration   1: 23289851.368 ops/s
+Iteration   2: 23288594.061 ops/s
+Iteration   3: 23300365.280 ops/s
+Iteration   4: 23262420.642 ops/s
+Iteration   5: 23352853.733 ops/s
+Iteration   6: 23263950.043 ops/s
+Iteration   7: 23348630.713 ops/s
+Iteration   8: 23308488.934 ops/s
+Iteration   9: 23321428.339 ops/s
+Iteration  10: 23321165.656 ops/s
+
+# Run progress: 97.22% complete, ETA 00:10:02
+# Fork: 3 of 4
+# Warmup Iteration   1: 35529691.794 ops/s
+# Warmup Iteration   2: 39911742.893 ops/s
+# Warmup Iteration   3: 37371459.992 ops/s
+# Warmup Iteration   4: 37410189.538 ops/s
+# Warmup Iteration   5: 37341362.954 ops/s
+Iteration   1: 37495344.363 ops/s
+Iteration   2: 37465652.668 ops/s
+Iteration   3: 37439900.925 ops/s
+Iteration   4: 37391693.642 ops/s
+Iteration   5: 37459735.028 ops/s
+Iteration   6: 37515567.248 ops/s
+Iteration   7: 37423762.994 ops/s
+Iteration   8: 37395872.869 ops/s
+Iteration   9: 37370674.397 ops/s
+Iteration  10: 37328569.428 ops/s
+
+# Run progress: 98.61% complete, ETA 00:05:01
+# Fork: 4 of 4
+# Warmup Iteration   1: 36991859.433 ops/s
+# Warmup Iteration   2: 40693121.538 ops/s
+# Warmup Iteration   3: 41317547.926 ops/s
+# Warmup Iteration   4: 41288581.515 ops/s
+# Warmup Iteration   5: 41231511.733 ops/s
+Iteration   1: 41257832.784 ops/s
+Iteration   2: 41292392.671 ops/s
+Iteration   3: 41309253.736 ops/s
+Iteration   4: 41370065.334 ops/s
+Iteration   5: 41296329.985 ops/s
+Iteration   6: 41275888.185 ops/s
+Iteration   7: 41243992.818 ops/s
+Iteration   8: 41348485.051 ops/s
+Iteration   9: 41224052.802 ops/s
+Iteration  10: 41278923.322 ops/s
+
+
+Result "vanillaJava":
+  35339538.490 ±(99.9%) 4034261.124 ops/s [Average]
+  (min, avg, max) = (23262420.642, 35339538.490, 41370065.334), stdev = 7170895.606
+  CI (99.9%): [31305277.366, 39373799.614] (assumes normal distribution)
+
+
+# Run complete. Total time: 06:01:30
+
+Benchmark                                                                                                         Mode  Cnt         Score         Error  Units
+c.f.groovy.compilation.GroovyCompilationBenchmark.scriptFromClassloader                                          thrpt   40   3443216.027 ±   36354.126  ops/s
+c.f.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptInOneCycle                         thrpt   40   4101902.557 ±  105978.620  ops/s
+c.f.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle                thrpt   40   4346689.976 ±  113999.967  ops/s
+c.f.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle        thrpt   40   4232970.384 ±   93109.872  ops/s
+c.f.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptInOneCycle                   thrpt   40   4734100.850 ±   32975.947  ops/s
+c.f.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle          thrpt   40   4821255.535 ±   25239.823  ops/s
+c.f.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle  thrpt   40   4958224.153 ±   91995.790  ops/s
+c.f.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineInOneCycle                                    thrpt   40    137030.242 ±    3186.743  ops/s
+c.f.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineNoScriptInOneCycle                            thrpt   40    135547.553 ±     641.629  ops/s
+c.f.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineNoScriptLessBindingInOneCycle                 thrpt   40    213188.583 ±     987.700  ops/s
+c.f.groovy.groovyscript.scriptinheritance.ScriptInheritanceBenchmark.groovyNoCompileCustomBinding                thrpt   40   3269535.727 ±   25125.812  ops/s
+c.f.groovy.groovyscript.staticcompilation.StaticCompilationBenchmark.testStaticCompiledScript                    thrpt   40  12531283.303 ±  107423.687  ops/s
+c.f.groovy.groovyscript.typedscript.TypedScriptBenchmark.groovyNoShellNoCompile                                  thrpt   40   4689558.813 ±   62647.290  ops/s
+c.f.groovy.groovyscript.typedscript.TypedScriptBenchmark.groovyNoShellNoCompileNoInstantiate                     thrpt   40   5071219.208 ±   55486.532  ops/s
+c.f.groovy.template.TemplateBenchmark.templateNoCompilation                                                      thrpt   40   1386462.321 ±    9572.253  ops/s
+c.f.groovy.template.TemplateBenchmark.templateNoCompilationCustomParser                                          thrpt   40   1594189.510 ±   42076.362  ops/s
+c.f.groovy.template.TemplateBenchmark.templateNoCompilationCustomParserTyped                                     thrpt   40   1998500.778 ±   56442.280  ops/s
+c.f.java.JavaBenchmark.vanillaJava                                                                               thrpt   40  35339538.490 ± 4034261.124  ops/s
