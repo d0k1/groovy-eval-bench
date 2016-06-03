@@ -61,9 +61,9 @@ I used these annotations to configre JMH to run each test:
 
 # Results #
 
-| Method                                                                        | Score          | Error          | Units |
+| Method                                                                    | Score      | Error      | Units |
 |-------------------------------------------------------------------------------|----------------|----------------|-------|
-|GroovyShellBenchmark.groovyNoShellNoScriptInOneCycle                           |3380448.142     | ±107825.500    | ops/s |
+|GroovyShellBenchmark.groovyNoShellNoScriptInOneCycle                       |3380448.142 | ±107825.500| ops/s |
 
 # Some JHM benchmarks to get the right way to call Groovy from Java #
 There are some jmh benchmarks I wrote to find out which way is the best to call groovy scripts and/or groovy's template engine
@@ -128,24 +128,24 @@ I used these annotations to configre JMH to run each test:
 
 # Results #
 
-| Method                                                                         | Score          | Error          | Units |
-|--------------------------------------------------------------------------------|----------------|----------------|-------|
-|GroovyShellBenchmark.groovyNoShellNoScriptInOneCycle                            |3380448.142     | ± 107825.500   | ops/s |
-|GroovyCompilationBenchmark.scriptFromClassloader                                |3443216.027     | ± 36354.126    | ops/s |
-|GroovyShellBenchmark.groovyNoShellNoScriptInOneCycle                            |4101902.557     | ± 105978.620   | ops/s |
-|GroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle                   |4346689.976     | ± 113999.967   | ops/s |
-|GroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle           |4232970.384     | ± 93109.872    | ops/s |
-|IndyGroovyShellBenchmark.groovyNoShellNoScriptInOneCycle                        |4734100.850     | ± 32975.947    | ops/s |
-|IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle               |4821255.535     | ± 25239.823    | ops/s |
-|IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle       |4958224.153     | ± 91995.790    | ops/s |
-|GroovyJSR223Benchmark.groovyNoEngineInOneCycle                                  |137030.242      | ± 3186.743     | ops/s |
-|GroovyJSR223Benchmark.groovyNoEngineNoScriptInOneCycle                          |135547.553      | ± 641.629      | ops/s |
-|GroovyJSR223Benchmark.groovyNoEngineNoScriptLessBindingInOneCycle               |213188.583      | ± 987.700      | ops/s |
-|ScriptInheritanceBenchmark.groovyNoCompileCustomBinding                         |3269535.727     | ± 25125.812    | ops/s |
-|StaticCompilationBenchmark.testStaticCompiledScript                             |12531283.303    | ± 107423.687   | ops/s |
-|TypedScriptBenchmark.groovyNoShellNoCompile                                     |4689558.813     | ± 62647.290    | ops/s |
-|TypedScriptBenchmark.groovyNoShellNoCompileNoInstantiate                        |5071219.208     | ± 55486.532    | ops/s |
-|TemplateBenchmark.templateNoCompilation                                         |1386462.321     | ± 9572.253     | ops/s |
-|TemplateBenchmark.templateNoCompilationCustomParser                             |1594189.510     | ± 42076.362    | ops/s |
-|TemplateBenchmark.templateNoCompilationCustomParserTyped                        |1998500.778     | ± 56442.280    | ops/s |
-|JavaBenchmark.vanillaJava                                                       |35339538.490    | ± 4034261.124  | ops/s |
+| Method                                                                     | Score      | Error      | Units |
+|----------------------------------------------------------------------------|------------|------------|-------|
+|GroovyShellBenchmark.groovyNoShellNoScriptInOneCycle                        |3380448.142 |±107825.500 | ops/s |
+|GroovyCompilationBenchmark.scriptFromClassloader                            |3443216.027 |±36354.126  | ops/s |
+|GroovyShellBenchmark.groovyNoShellNoScriptInOneCycle                        |4101902.557 |±105978.620 | ops/s |
+|GroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle               |4346689.976 |±113999.967 | ops/s |
+|GroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle       |4232970.384 |±93109.872  | ops/s |
+|IndyGroovyShellBenchmark.groovyNoShellNoScriptInOneCycle                    |4734100.850 |±32975.947  | ops/s |
+|IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle           |4821255.535 |±25239.823  | ops/s |
+|IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle   |4958224.153 |±91995.790  | ops/s |
+|GroovyJSR223Benchmark.groovyNoEngineInOneCycle                              |137030.242  |±3186.743   | ops/s |
+|GroovyJSR223Benchmark.groovyNoEngineNoScriptInOneCycle                      |135547.553  |±641.629    | ops/s |
+|GroovyJSR223Benchmark.groovyNoEngineNoScriptLessBindingInOneCycle           |213188.583  |±987.700    | ops/s |
+|ScriptInheritanceBenchmark.groovyNoCompileCustomBinding                     |3269535.727 |±25125.812  | ops/s |
+|StaticCompilationBenchmark.testStaticCompiledScript                         |12531283.303|±107423.687 | ops/s |
+|TypedScriptBenchmark.groovyNoShellNoCompile                                 |4689558.813 |±62647.290  | ops/s |
+|TypedScriptBenchmark.groovyNoShellNoCompileNoInstantiate                    |5071219.208 |±55486.532  | ops/s |
+|TemplateBenchmark.templateNoCompilation                                     |1386462.321 |±9572.253   | ops/s |
+|TemplateBenchmark.templateNoCompilationCustomParser                         |1594189.510 |±42076.362  | ops/s |
+|TemplateBenchmark.templateNoCompilationCustomParserTyped                    |1998500.778 |±56442.280  | ops/s |
+|JavaBenchmark.vanillaJava                                                   |35339538.490|±4034261.124| ops/s |
