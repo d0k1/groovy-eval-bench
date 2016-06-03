@@ -8,10 +8,14 @@ Each benchmark tries to run the same primitive groovy script in it's own way:
 * GroovyShellBenchmark covers standard way to call groovy from java - throught GroovyShell
 * JSR223Benchmark covers unified way to call any script engine from java - jsr223 - scripting for the java platform
 * TypedScript uses groovy to compile the script to *.class, and then instantiates an object and call directly it's method(s). 
+* IndyGroovyShellBenchmark shows what would happened to performance if Groovy will use `INVOKEDYNAMIC` compiler option
+* ScriptInheritanceBenchmark demonstrates an overhead when Groovy has special base class for script
+* TemplateBenchmark shows the price for Groovy GString templating
+* JavaBenchmark shows performance of the same operations written in Java
 
 # Conditions #
 ## Hardware ##
-All of these benchmarks I ran on my laptop.
+CPU used to run benchmarks
 ```
 processor	: 0
 vendor_id	: GenuineIntel
@@ -41,7 +45,7 @@ address sizes	: 39 bits physical, 48 bits virtual
 power management:
 ```
 ## Environment ##
-All of these tests I run on Ubuntu 16.04 x64
+OS Ubuntu 16.04 x64 with Oracle Java
 ```
 $ java -version
 java version "1.8.0_91"
