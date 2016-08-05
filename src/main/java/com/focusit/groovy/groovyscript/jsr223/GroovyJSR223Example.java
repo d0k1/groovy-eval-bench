@@ -8,10 +8,14 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Example of JSR223 with groovy
+ * Example of JSR223 with groovy.
+ * Can be used to measure memory footprint so far // SimpleScriptWithPrintln.groovy
  * Created by doki on 30.05.16.
  */
 public class GroovyJSR223Example {
+    // SimpleScriptWithPrintln.groovy
+
+
     public static void main(String args[]) throws ScriptException, IOException {
         String simpleScriptBody;
         try (InputStream is = GroovyShellExample.class.getClassLoader().getResourceAsStream("SimpleScript.groovy")) {
