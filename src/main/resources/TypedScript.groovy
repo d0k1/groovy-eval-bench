@@ -3,7 +3,7 @@
  */
 
 
-import com.focusit.groovy.groovyscript.typedscript.ITypedScript
+import com.focusit.cpu.groovy.groovyscript.typedscript.ITypedScript
 
 import static java.lang.Math.PI
 

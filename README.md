@@ -1,4 +1,6 @@
 # Some JHM benchmarks to get the most efficient way to call Groovy from Java #
+#Part 1 Looking for cpu efficient way
+
 There are some jmh benchmarks I wrote to find out which way is the best to call groovy scripts and/or groovy's template engine
 
 The point of these benchmarks is to measure real overhead produced by various ways of running groovy inside JVM.
@@ -86,3 +88,6 @@ I used these annotations to configre JMH to run each test:
 |TemplateBenchmark.templateNoCompilationCustomParser                         |1594189.510 |±42076.362  | ops/s |
 |TemplateBenchmark.templateNoCompilationCustomParserTyped                    |1998500.778 |±56442.280  | ops/s |
 |JavaBenchmark.vanillaJava                                                   |35339538.490|±4034261.124| ops/s |
+
+#Part 2 Looking for memory efficient way
+

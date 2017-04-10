@@ -10,5 +10,6 @@ class Init {
     }
 }
 
+new Init();
 
 return script.run();

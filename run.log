@@ -7,7 +7,7 @@
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.compilation.GroovyCompilationBenchmark.scriptFromClassloader
+# Benchmark: com.focusit.cpu.groovy.compilation.GroovyCompilationBenchmark.scriptFromClassloader
 
 # Run progress: 0.00% complete, ETA 06:00:00
 # Fork: 1 of 4
@@ -97,7 +97,7 @@ Result "scriptFromClassloader":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptInOneCycle
+# Benchmark: com.focusit.cpu.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptInOneCycle
 
 # Run progress: 5.56% complete, ETA 05:41:18
 # Fork: 1 of 4
@@ -187,7 +187,7 @@ Result "groovyNoShellNoScriptInOneCycle":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle
+# Benchmark: com.focusit.cpu.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle
 
 # Run progress: 11.11% complete, ETA 05:21:19
 # Fork: 1 of 4
@@ -277,7 +277,7 @@ Result "groovyNoShellNoScriptNoBindingInOneCycle":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle
+# Benchmark: com.focusit.cpu.groovy.groovyscript.groovyshell.GroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle
 
 # Run progress: 16.67% complete, ETA 05:01:15
 # Fork: 1 of 4
@@ -367,7 +367,7 @@ Result "groovyNoShellNoScriptNoBindingNoMethodInOneCycle":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptInOneCycle
+# Benchmark: com.focusit.cpu.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptInOneCycle
 
 # Run progress: 22.22% complete, ETA 04:41:11
 # Fork: 1 of 4
@@ -457,7 +457,7 @@ Result "groovyNoShellNoScriptInOneCycle":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle
+# Benchmark: com.focusit.cpu.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingInOneCycle
 
 # Run progress: 27.78% complete, ETA 04:21:06
 # Fork: 1 of 4
@@ -547,7 +547,7 @@ Result "groovyNoShellNoScriptNoBindingInOneCycle":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle
+# Benchmark: com.focusit.cpu.groovy.groovyscript.invokedynamic.IndyGroovyShellBenchmark.groovyNoShellNoScriptNoBindingNoMethodInOneCycle
 
 # Run progress: 33.33% complete, ETA 04:01:02
 # Fork: 1 of 4
@@ -637,7 +637,7 @@ Result "groovyNoShellNoScriptNoBindingNoMethodInOneCycle":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineInOneCycle
+# Benchmark: com.focusit.cpu.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineInOneCycle
 
 # Run progress: 38.89% complete, ETA 03:40:57
 # Fork: 1 of 4
@@ -727,7 +727,7 @@ Result "groovyNoEngineInOneCycle":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineNoScriptInOneCycle
+# Benchmark: com.focusit.cpu.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineNoScriptInOneCycle
 
 # Run progress: 44.44% complete, ETA 03:20:50
 # Fork: 1 of 4
@@ -817,7 +817,7 @@ Result "groovyNoEngineNoScriptInOneCycle":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineNoScriptLessBindingInOneCycle
+# Benchmark: com.focusit.cpu.groovy.groovyscript.jsr223.GroovyJSR223Benchmark.groovyNoEngineNoScriptLessBindingInOneCycle
 
 # Run progress: 50.00% complete, ETA 03:00:44
 # Fork: 1 of 4
@@ -907,7 +907,7 @@ Result "groovyNoEngineNoScriptLessBindingInOneCycle":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.scriptinheritance.ScriptInheritanceBenchmark.groovyNoCompileCustomBinding
+# Benchmark: com.focusit.cpu.groovy.groovyscript.scriptinheritance.ScriptInheritanceBenchmark.groovyNoCompileCustomBinding
 
 # Run progress: 55.56% complete, ETA 02:40:39
 # Fork: 1 of 4
@@ -997,7 +997,7 @@ Result "groovyNoCompileCustomBinding":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.staticcompilation.StaticCompilationBenchmark.testStaticCompiledScript
+# Benchmark: com.focusit.cpu.groovy.groovyscript.staticcompilation.StaticCompilationBenchmark.testStaticCompiledScript
 
 # Run progress: 61.11% complete, ETA 02:20:34
 # Fork: 1 of 4
@@ -1087,7 +1087,7 @@ Result "testStaticCompiledScript":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.typedscript.TypedScriptBenchmark.groovyNoShellNoCompile
+# Benchmark: com.focusit.cpu.groovy.groovyscript.typedscript.TypedScriptBenchmark.groovyNoShellNoCompile
 
 # Run progress: 66.67% complete, ETA 02:00:30
 # Fork: 1 of 4
@@ -1177,7 +1177,7 @@ Result "groovyNoShellNoCompile":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.groovyscript.typedscript.TypedScriptBenchmark.groovyNoShellNoCompileNoInstantiate
+# Benchmark: com.focusit.cpu.groovy.groovyscript.typedscript.TypedScriptBenchmark.groovyNoShellNoCompileNoInstantiate
 
 # Run progress: 72.22% complete, ETA 01:40:25
 # Fork: 1 of 4
@@ -1267,7 +1267,7 @@ Result "groovyNoShellNoCompileNoInstantiate":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.template.TemplateBenchmark.templateNoCompilation
+# Benchmark: com.focusit.cpu.groovy.template.TemplateBenchmark.templateNoCompilation
 
 # Run progress: 77.78% complete, ETA 01:20:20
 # Fork: 1 of 4
@@ -1357,7 +1357,7 @@ Result "templateNoCompilation":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.template.TemplateBenchmark.templateNoCompilationCustomParser
+# Benchmark: com.focusit.cpu.groovy.template.TemplateBenchmark.templateNoCompilationCustomParser
 
 # Run progress: 83.33% complete, ETA 01:00:15
 # Fork: 1 of 4
@@ -1447,7 +1447,7 @@ Result "templateNoCompilationCustomParser":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.groovy.template.TemplateBenchmark.templateNoCompilationCustomParserTyped
+# Benchmark: com.focusit.cpu.groovy.template.TemplateBenchmark.templateNoCompilationCustomParserTyped
 
 # Run progress: 88.89% complete, ETA 00:40:10
 # Fork: 1 of 4
@@ -1537,7 +1537,7 @@ Result "templateNoCompilationCustomParserTyped":
 # Timeout: 10 min per iteration
 # Threads: 8 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.focusit.java.JavaBenchmark.vanillaJava
+# Benchmark: com.focusit.cpu.java.JavaBenchmark.vanillaJava
 
 # Run progress: 94.44% complete, ETA 00:20:05
 # Fork: 1 of 4
