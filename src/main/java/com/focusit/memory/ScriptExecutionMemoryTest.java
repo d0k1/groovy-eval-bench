@@ -3,22 +3,18 @@ package com.focusit.memory;
 import com.focusit.cpu.groovy.groovyscript.groovyshell.GroovyShellExample;
 import groovy.lang.*;
 import org.apache.commons.io.IOUtils;
-import org.codehaus.groovy.reflection.CachedClass;
-import org.codehaus.groovy.reflection.ClassInfo;
-import org.codehaus.groovy.reflection.GroovyClassValue;
+import org.codehaus.groovy.reflection.*;
 import org.codehaus.groovy.runtime.callsite.CallSite;
-import org.codehaus.groovy.runtime.callsite.CallSiteClassLoader;
 import org.codehaus.groovy.runtime.callsite.MetaClassSite;
+import org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl;
+import org.codehaus.groovy.util.FastArray;
 import org.codehaus.groovy.util.LazyReference;
-import org.codehaus.groovy.util.ManagedReference;
 import org.codehaus.groovy.util.ReferenceBundle;
-import org.codehaus.groovy.util.ReferenceManager;
-import se.jiderhamn.classloader.leak.prevention.ClassLoaderLeakPreventor;
-import se.jiderhamn.classloader.leak.prevention.ClassLoaderLeakPreventorFactory;
 
 import java.beans.Introspector;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.ref.SoftReference;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -43,6 +39,7 @@ public class ScriptExecutionMemoryTest {
 
     private static Field classes;
     private static Field metaClass;
+    private static Field pogoCallSiteConstructor, pojoCallSiteConstructor, staticCallSiteConstructor;
 
     static
     {
@@ -87,6 +84,15 @@ public class ScriptExecutionMemoryTest {
 
             metaClass = MetaClassSite.class.getDeclaredField("metaClass");
             metaClass.setAccessible(true);
+
+            pogoCallSiteConstructor = CachedMethod.class.getDeclaredField("pogoCallSiteConstructor");
+            pogoCallSiteConstructor.setAccessible(true);
+
+            pojoCallSiteConstructor = CachedMethod.class.getDeclaredField("pojoCallSiteConstructor");
+            pojoCallSiteConstructor.setAccessible(true);
+
+            staticCallSiteConstructor = CachedMethod.class.getDeclaredField("staticCallSiteConstructor");
+            staticCallSiteConstructor.setAccessible(true);
         }
         catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e)
         {
@@ -94,16 +100,61 @@ public class ScriptExecutionMemoryTest {
         }
     }
 
-    private static void clearCallSiteLoader(CallSiteClassLoader loader){
+    private static void clearCachedMethods(CachedMethod[] methods) throws IllegalAccessException {
+        for(int i=0;i<methods.length;i++) {
+            CachedMethod method = methods[i];
+            clearCachedMethod(method);
+//            methods[i] = null;
+        }
+    }
+
+    private static void clearCachedMethod(CachedMethod method) throws IllegalAccessException {
+        SoftReference ref = (SoftReference) pojoCallSiteConstructor.get(method);
+        if (ref != null) {
+            ref.clear();
+            pojoCallSiteConstructor.set(method, null);
+        }
+
+        ref = (SoftReference) pogoCallSiteConstructor.get(method);
+        if (ref != null) {
+            ref.clear();
+            pogoCallSiteConstructor.set(method, null);
+        }
+
+        ref = (SoftReference) staticCallSiteConstructor.get(method);
+        if (ref != null) {
+            ref.clear();
+            staticCallSiteConstructor.set(method, null);
+        }
+    }
+
+    private static void clearInstanceMethods(CachedClass cls) throws IllegalAccessException {
+        MetaClassRegistryImpl mcri = (MetaClassRegistryImpl) GroovySystem.getMetaClassRegistry();
+        FastArray methods = mcri.getInstanceMethods();
+        for(int i=0;i<methods.size();i++){
+            if(methods.get(i) instanceof GeneratedMetaMethod.Proxy) {
+                GeneratedMetaMethod m = (GeneratedMetaMethod) methods.get(i);
+                clearCachedClass(m.getDeclaringClass());
+            }
+        }
     }
 
     private static void clearCachedClass(CachedClass cls) throws IllegalAccessException {
         ((LazyReference)fields.get(cls)).clear();
-        ((LazyReference)constructors.get(cls)).clear();
-        ((LazyReference)methods.get(cls)).clear();
-        ((LazyReference)cachedSuperClass.get(cls)).clear();
 
-        clearCallSiteLoader((CallSiteClassLoader) ((LazyReference)callSiteClassLoader.get(cls)).get());
+        if(methods.get(cls)!=null) {
+            CachedMethod[] cachedMethods = (CachedMethod[]) ((LazyReference) methods.get(cls)).get();
+            ((LazyReference) methods.get(cls)).clear();
+            clearCachedMethods(cachedMethods);
+        }
+
+        ((LazyReference)constructors.get(cls)).clear();
+        CachedConstructor[] cachedConstructors = (CachedConstructor[]) ((LazyReference)constructors.get(cls)).get();
+        for(int i=0;i<cachedConstructors.length;i++){
+            cachedConstructors[i] = null;
+        }
+
+        ((LazyReference)cachedSuperClass.get(cls)).clear();
 
         ((LazyReference)callSiteClassLoader.get(cls)).clear();
         cachedClass.set(cls, null);
@@ -120,9 +171,11 @@ public class ScriptExecutionMemoryTest {
     private static void removeGroovyClass(final Class<?> scriptClass, final MetaClassRegistry metaClassRegistry)
     {
         MetaClassImpl mci = (MetaClassImpl) metaClassRegistry.getMetaClass(scriptClass);
-        System.err.println(mci);
+//        System.err.println(mci);
         try {
             clearClassInfo(((MetaClassImpl)metaClassRegistry.getMetaClass(scriptClass)).getClassInfo());
+
+            clearInstanceMethods(((MetaClassImpl)metaClassRegistry.getMetaClass(scriptClass)).getTheCachedClass());
             clearCachedClass(((MetaClassImpl)metaClassRegistry.getMetaClass(scriptClass)).getTheCachedClass());
 
         } catch (IllegalAccessException e) {
@@ -139,21 +192,27 @@ public class ScriptExecutionMemoryTest {
         Method getCallSiteArray = scriptClass.getDeclaredMethod("$getCallSiteArray", null);
         getCallSiteArray.setAccessible(true);
         CallSite[] cs = (CallSite[]) getCallSiteArray.invoke(scriptClass, null);
-        System.err.println(cs);
         MetaClassRegistry metaClassRegistry = GroovySystem.getMetaClassRegistry();
-        for(CallSite site:cs){
+        for(int i=0;i<cs.length;i++){
+            CallSite site = cs[i];
+//            System.out.println("Class: "+site.getClass()+" Loader: "+site.getClass().getClassLoader());
             if(site instanceof MetaClassSite){
                 MetaClassImpl mci = (MetaClassImpl) metaClass.get((MetaClassSite) site);
                 removeGroovyClass(mci.getClassInfo().getTheClass(), metaClassRegistry);
             } else {
                 try {
                     Field mc = site.getClass().getDeclaredField("metaClass");
+                    mc.setAccessible(true);
                     MetaClassImpl mci = (MetaClassImpl)mc.get(site);
                     removeGroovyClass(mci.getClassInfo().getTheClass(), metaClassRegistry);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    System.err.println(e.toString());
+                    //e.printStackTrace();
                 }
             }
+            removeGroovyClass(site.getClass(), metaClassRegistry);
+            ((Vector<Class>)classes.get(site.getClass().getClassLoader())).remove(site.getClass());
+            cs[i] = null;
         }
     }
 
@@ -204,25 +263,7 @@ public class ScriptExecutionMemoryTest {
     private static final GroovyClassLoader loader = new CustomGroovyClassLoader(ClassLoader.getSystemClassLoader());
     private static final Class script0Class = loader.parseClass("return 0");
     private static final CustomCallSiteClassLoader callSiteLoader = new CustomCallSiteClassLoader(script0Class);
-//    private static ClassLoaderLeakPreventorFactory classLoaderLeakPreventorFactory = new ClassLoaderLeakPreventorFactory(loader);
-//    private static ClassLoaderLeakPreventor classLoaderLeakPreventor = classLoaderLeakPreventorFactory.newLeakPreventor(loader);
 
-    private static void setCallSiteClassLoader(CachedClass cls) throws IllegalAccessException {
-        //LazyReference ref = (LazyReference) callSiteClassLoader.get(cls);
-        //reference.set(ref, new ManagedReference<CallSiteClassLoader>(ReferenceBundle.getSoftBundle().getType(), ReferenceBundle.getSoftBundle().getManager(), callSiteLoader));
-    }
-
-    static {
-        GroovySystem.getMetaClassRegistry().addNonRemovableMetaClassRegistryChangeEventListener(cmcu -> {
-            try {
-                CachedClass cachedClass = ((MetaClassImpl) cmcu.getNewMetaClass()).getTheCachedClass();
-                setCallSiteClassLoader(cachedClass);
-                System.err.println(cmcu.getInstance());
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        });
-    }
     public static Class test(String scriptName) throws IOException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         System.out.println("Start");
         String simpleScriptBody;
@@ -234,7 +275,6 @@ public class ScriptExecutionMemoryTest {
         Class scriptClass = loader.parseClass(simpleScriptBody, "Compiled"+System.currentTimeMillis());
 
         CachedClass cachedClass = ((MetaClassImpl) GroovySystem.getMetaClassRegistry().getMetaClass(scriptClass)).getTheCachedClass();
-        setCallSiteClassLoader(cachedClass);
 
         System.out.println("CachedCalss "+cachedClass);
 
