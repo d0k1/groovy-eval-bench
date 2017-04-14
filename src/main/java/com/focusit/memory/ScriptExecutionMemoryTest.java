@@ -26,6 +26,8 @@ import java.util.Vector;
  * Created by dkirpichenkov on 07.04.17.
  */
 public class ScriptExecutionMemoryTest {
+    private static final GroovyClassLoader loader = new CustomGroovyClassLoader(ClassLoader.getSystemClassLoader());
+
     private static GroovyClassValue<?> groovyGlobalClassValue;
     private static Field cachedClassRef;
     private static Field artifactClassLoader;
@@ -45,6 +47,10 @@ public class ScriptExecutionMemoryTest {
 
     static
     {
+        initReflectionFields();
+    }
+
+    private static void initReflectionFields(){
         try
         {
             Field gcv = ClassInfo.class.getDeclaredField("globalClassValue");
@@ -102,14 +108,7 @@ public class ScriptExecutionMemoryTest {
         }
     }
 
-    private static void clearCachedMethods(CachedMethod[] methods) throws IllegalAccessException {
-        for(int i=0;i<methods.length;i++) {
-            CachedMethod method = methods[i];
-            clearCachedMethod(method);
-        }
-    }
-
-    private static void clearCachedMethod(CachedMethod method) throws IllegalAccessException {
+    private static void clearRefsInCachedMethod(CachedMethod method) throws IllegalAccessException {
         SoftReference ref = (SoftReference) pojoCallSiteConstructor.get(method);
         if (ref != null) {
             ref.clear();
@@ -165,8 +164,9 @@ public class ScriptExecutionMemoryTest {
                 CachedMethod[] cachedMethods = (CachedMethod[]) ((LazyReference) methods.get(ccls)).get();
                 for(CachedMethod cm:cachedMethods){
                     if(isMethodLinkedToClass(cm, cls)){
-                        clearCachedMethod(cm);
-                        callSiteClassLoader.set(ccls, null);
+                        mtds.remove(i);
+                        clearRefsInCachedMethod(cm);
+//                        callSiteClassLoader.set(ccls, null);
                     }
                 }
             }
@@ -182,7 +182,10 @@ public class ScriptExecutionMemoryTest {
             if (methods.get(cls) != null) {
                 CachedMethod[] cachedMethods = (CachedMethod[]) ((LazyReference) methods.get(cls)).get();
                 ((LazyReference) methods.get(cls)).clear();
-                clearCachedMethods(cachedMethods);
+                for(int i=0;i<cachedMethods.length;i++) {
+                    CachedMethod method = cachedMethods[i];
+                    clearRefsInCachedMethod(method);
+                }
             }
 
             ((LazyReference) constructors.get(cls)).clear();
@@ -195,8 +198,8 @@ public class ScriptExecutionMemoryTest {
 
             ((LazyReference) callSiteClassLoader.get(cls)).clear();
 
-//            cachedClass.set(cls, null);
-//            cls.classInfo = null;
+            cachedClass.set(cls, null);
+            cls.classInfo = null;
         }
     }
 
@@ -208,13 +211,10 @@ public class ScriptExecutionMemoryTest {
 
     private static void removeGroovyClass(final Class<?> scriptClass, final MetaClassRegistry metaClassRegistry)
     {
-        MetaClassImpl mci = (MetaClassImpl) metaClassRegistry.getMetaClass(scriptClass);
-//        System.err.println(mci);
         try {
+            clearInstanceMethods(((MetaClassImpl)metaClassRegistry.getMetaClass(scriptClass)).getTheCachedClass());
             clearClassInfo(((MetaClassImpl)metaClassRegistry.getMetaClass(scriptClass)).getClassInfo());
             clearCachedClass(((MetaClassImpl)metaClassRegistry.getMetaClass(scriptClass)).getTheCachedClass());
-            clearInstanceMethods(((MetaClassImpl)metaClassRegistry.getMetaClass(scriptClass)).getTheCachedClass());
-
         } catch (IllegalAccessException e) {
             e.printStackTrace(System.err);
         }
@@ -225,14 +225,13 @@ public class ScriptExecutionMemoryTest {
         Introspector.flushFromCaches(scriptClass);
     }
 
-    private static void removeCallSites(Class<?> scriptClass) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    private static void clearCallSites(Class<?> scriptClass) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method getCallSiteArray = scriptClass.getDeclaredMethod("$getCallSiteArray", null);
         getCallSiteArray.setAccessible(true);
         CallSite[] cs = (CallSite[]) getCallSiteArray.invoke(scriptClass, null);
         MetaClassRegistry metaClassRegistry = GroovySystem.getMetaClassRegistry();
         for(int i=0;i<cs.length;i++){
             CallSite site = cs[i];
-//            System.out.println("Class: "+site.getClass()+" Loader: "+site.getClass().getClassLoader());
             if(site instanceof MetaClassSite){
                 MetaClassImpl mci = (MetaClassImpl) metaClass.get((MetaClassSite) site);
                 removeGroovyClass(mci.getClassInfo().getTheClass(), metaClassRegistry);
@@ -243,8 +242,7 @@ public class ScriptExecutionMemoryTest {
                     MetaClassImpl mci = (MetaClassImpl)mc.get(site);
                     removeGroovyClass(mci.getClassInfo().getTheClass(), metaClassRegistry);
                 } catch (Exception e) {
-                    System.err.println(e.toString());
-                    //e.printStackTrace();
+                    //System.err.println(e.toString());
                 }
             }
             removeGroovyClass(site.getClass(), metaClassRegistry);
@@ -256,8 +254,6 @@ public class ScriptExecutionMemoryTest {
     private static void removeGroovyClasses(final Class<?> scriptClass, boolean closeClassloader) throws IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         System.out.println(String.format("Removing script class %s from caches", scriptClass));
 
-        removeCallSites(scriptClass);
-
         MetaClassRegistry metaClassRegistry = GroovySystem.getMetaClassRegistry();
         final ClassLoader classLoader = scriptClass.getClassLoader();
         if (classLoader instanceof GroovyClassLoader)
@@ -268,9 +264,7 @@ public class ScriptExecutionMemoryTest {
                 {
                     for (Class<?> clazz : groovyClassLoader.getLoadedClasses())
                     {
-                        removeGroovyClass(clazz, metaClassRegistry);
-                        groovyClassLoader.removeClassFromCache(clazz);
-                        ((Vector<Class>)classes.get(groovyClassLoader)).remove(clazz);
+                        removeClassFromGroovyClassloader(metaClassRegistry, groovyClassLoader, clazz);
                     }
                 }
                 catch (IOException | IllegalAccessException e)
@@ -280,9 +274,7 @@ public class ScriptExecutionMemoryTest {
             }
             else
             {
-                removeGroovyClass(scriptClass, metaClassRegistry);
-                ((CustomGroovyClassLoader)classLoader).removeClassFromCache(scriptClass);
-                ((Vector<Class>)classes.get(classLoader)).remove(scriptClass);
+                removeClassFromGroovyClassloader(metaClassRegistry, (CustomGroovyClassLoader)classLoader, scriptClass);
             }
         }
         else
@@ -291,17 +283,24 @@ public class ScriptExecutionMemoryTest {
             removeGroovyClass(scriptClass, metaClassRegistry);
         }
 
+        clearGroovyRefs();
+    }
+
+    private static void clearGroovyRefs() {
         ReferenceBundle.getHardBundle().getManager().removeStallEntries();
         ReferenceBundle.getWeakBundle().getManager().removeStallEntries();
         ReferenceBundle.getSoftBundle().getManager().removeStallEntries();
         ReferenceBundle.getPhantomBundle().getManager().removeStallEntries();
     }
 
-    private static final GroovyClassLoader loader = new CustomGroovyClassLoader(ClassLoader.getSystemClassLoader());
-    private static final Class script0Class = loader.parseClass("return 0");
-    private static final CustomCallSiteClassLoader callSiteLoader = new CustomCallSiteClassLoader(script0Class);
+    private static void removeClassFromGroovyClassloader(MetaClassRegistry metaClassRegistry, CustomGroovyClassLoader groovyClassLoader, Class<?> clazz) throws IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        clearCallSites(clazz);
+        removeGroovyClass(clazz, metaClassRegistry);
+        groovyClassLoader.removeClassFromCache(clazz);
+        ((Vector<Class>)classes.get(groovyClassLoader)).remove(clazz);
+    }
 
-    public static Class test(String scriptName) throws IOException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+    public static Class compileAndRun(String scriptName) throws IOException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         System.out.println("Start");
         String simpleScriptBody;
         try (InputStream is = GroovyShellExample.class.getClassLoader().getResourceAsStream(scriptName))
@@ -322,32 +321,27 @@ public class ScriptExecutionMemoryTest {
         Object result = script.run();
         System.out.println("Result: "+result.getClass()+". "+result);
 
-//        System.in.read();
-
         return scriptClass;
     }
 
     public static void main(String[] args) throws IOException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-//        classLoaderLeakPreventor.runPreClassLoaderInitiators();
+        Class klazz;
 
-        Class klazz = test("SimpleCallSite.groovy");
+        klazz = compileAndRun("SimpleCallSite.groovy");
         removeGroovyClasses(klazz, false);
-        System.gc();
 
-        klazz = test("SimpleScriptWithPrintln.groovy");
+        klazz = compileAndRun("SimpleScriptWithPrintln.groovy");
         removeGroovyClasses(klazz, false);
-        System.gc();
 
-        klazz = test("SimpleCallSite2.groovy");
+        klazz = compileAndRun("SimpleCallSite2.groovy");
         removeGroovyClasses(klazz, false);
-        System.gc();
 
-        klazz = test("SimpleCallSite3.groovy");
+        klazz = compileAndRun("SimpleCallSite3.groovy");
         removeGroovyClasses(klazz, false);
-        System.gc();
 
         klazz = null;
-        System.out.println("Class cleared. klazz = "+klazz);
+        System.out.println("Class cleared. klazz = " + klazz);
+
         System.gc();
 
         System.in.read();

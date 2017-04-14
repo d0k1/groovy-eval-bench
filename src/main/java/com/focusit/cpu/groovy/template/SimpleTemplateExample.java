@@ -29,7 +29,7 @@ public class SimpleTemplateExample
         }
 
         Bindings bindings = new SimpleBindings();
-        bindings.put("key", "test!!!!!");
+        bindings.put("key", "compileAndRun!!!!!");
         String template1 = "<%" + CALCULATION_SCRIPT + "%>" + template;
         Template scriptTemplate = new SimpleTemplateEngine().createTemplate(template1);
         String result = scriptTemplate.make(bindings).toString();

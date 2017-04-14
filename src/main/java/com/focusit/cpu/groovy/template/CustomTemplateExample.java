@@ -28,7 +28,7 @@ public class CustomTemplateExample
     public static String dynamicScript(Script compiledTemplate)
     {
         Binding bindings = new Binding();
-        bindings.setProperty("key", "test!!!!!");
+        bindings.setProperty("key", "compileAndRun!!!!!");
         StringWriter writer = new StringWriter();
         bindings.setProperty("out", writer);
         compiledTemplate.setBinding(bindings);

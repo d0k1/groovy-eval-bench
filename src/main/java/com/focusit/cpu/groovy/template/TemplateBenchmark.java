@@ -72,7 +72,7 @@ public class TemplateBenchmark
     public void templateNoCompilation(Blackhole bh) throws IOException, ClassNotFoundException
     {
         Bindings bindings = new SimpleBindings();
-        bindings.put("key", "test!!!!!");
+        bindings.put("key", "compileAndRun!!!!!");
 
         String result = scriptTemplate.make(bindings).toString();
         bh.consume(result);
@@ -85,7 +85,7 @@ public class TemplateBenchmark
 
         StringWriter writer = new StringWriter();
 
-        bindings.setVariable("key", "test!!!!!");
+        bindings.setVariable("key", "compileAndRun!!!!!");
         bindings.setVariable("out", writer);
 
         compiledTemplate.setBinding(bindings);
@@ -101,7 +101,7 @@ public class TemplateBenchmark
         StringWriter writer = new StringWriter();
 
         TemplateBaseClass base = (TemplateBaseClass)templateClass.newInstance();
-        base.setKey("test???");
+        base.setKey("compileAndRun???");
         base.setOut(writer);
         base.setBinding(new POJOBinding());
         Object result = base.execute();
