@@ -15,6 +15,7 @@ import java.beans.Introspector;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -128,23 +129,48 @@ public class ScriptExecutionMemoryTest {
         }
     }
 
+    private static boolean isMethodLinkedToClass(CachedMethod method, CachedClass clazz) throws IllegalAccessException {
+        SoftReference ref = (SoftReference) pojoCallSiteConstructor.get(method);
+        if (ref != null) {
+            Constructor ct = (Constructor) ((SoftReference) pojoCallSiteConstructor.get(method)).get();
+            if(ct.getDeclaringClass().equals(clazz.getTheClass()))
+                return true;
+        }
+
+        ref = (SoftReference) pogoCallSiteConstructor.get(method);
+        if (ref != null) {
+            Constructor ct = (Constructor) ((SoftReference) pogoCallSiteConstructor.get(method)).get();
+            if(ct.getDeclaringClass().equals(clazz.getTheClass()))
+                return true;
+        }
+
+        ref = (SoftReference) staticCallSiteConstructor.get(method);
+        if (ref != null) {
+            Constructor ct = (Constructor) ((SoftReference) staticCallSiteConstructor.get(method)).get();
+            if(ct.getDeclaringClass().equals(clazz.getTheClass()))
+                return true;
+        }
+
+        return false;
+    }
+
     private static void clearInstanceMethods(CachedClass cls) throws IllegalAccessException {
         MetaClassRegistryImpl mcri = (MetaClassRegistryImpl) GroovySystem.getMetaClassRegistry();
-        FastArray methods = mcri.getInstanceMethods();
+        FastArray mtds = mcri.getInstanceMethods();
         HashSet<CachedClass> classes = new HashSet<>();
-        for(int i=0;i<methods.size();i++){
-            if(methods.get(i) instanceof GeneratedMetaMethod.Proxy) {
-                GeneratedMetaMethod m = (GeneratedMetaMethod) methods.get(i);
-                classes.add(m.getDeclaringClass());
+        for(int i=0;i<mtds.size();i++){
+            if(mtds.get(i) instanceof GeneratedMetaMethod.Proxy) {
+                GeneratedMetaMethod m = (GeneratedMetaMethod) mtds.get(i);
+                CachedClass ccls = m.getDeclaringClass();
+                CachedMethod[] cachedMethods = (CachedMethod[]) ((LazyReference) methods.get(ccls)).get();
+                for(CachedMethod cm:cachedMethods){
+                    if(isMethodLinkedToClass(cm, cls)){
+                        clearCachedMethod(cm);
+                        callSiteClassLoader.set(ccls, null);
+                    }
+                }
             }
         }
-        classes.forEach(it->{
-            try {
-                clearCachedClass(it);
-            } catch (IllegalAccessException e) {
-                //e.printStackTrace();
-            }
-        });
     }
 
     private static void clearCachedClass(CachedClass cls) throws IllegalAccessException {
