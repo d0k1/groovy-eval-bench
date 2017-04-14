@@ -18,6 +18,7 @@ import java.lang.ref.SoftReference;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashSet;
 import java.util.Vector;
 
 /**
@@ -104,7 +105,6 @@ public class ScriptExecutionMemoryTest {
         for(int i=0;i<methods.length;i++) {
             CachedMethod method = methods[i];
             clearCachedMethod(method);
-//            methods[i] = null;
         }
     }
 
@@ -131,35 +131,47 @@ public class ScriptExecutionMemoryTest {
     private static void clearInstanceMethods(CachedClass cls) throws IllegalAccessException {
         MetaClassRegistryImpl mcri = (MetaClassRegistryImpl) GroovySystem.getMetaClassRegistry();
         FastArray methods = mcri.getInstanceMethods();
+        HashSet<CachedClass> classes = new HashSet<>();
         for(int i=0;i<methods.size();i++){
             if(methods.get(i) instanceof GeneratedMetaMethod.Proxy) {
                 GeneratedMetaMethod m = (GeneratedMetaMethod) methods.get(i);
-                clearCachedClass(m.getDeclaringClass());
+                classes.add(m.getDeclaringClass());
             }
         }
+        classes.forEach(it->{
+            try {
+                clearCachedClass(it);
+            } catch (IllegalAccessException e) {
+                //e.printStackTrace();
+            }
+        });
     }
 
     private static void clearCachedClass(CachedClass cls) throws IllegalAccessException {
-        ((LazyReference)fields.get(cls)).clear();
 
-        if(methods.get(cls)!=null) {
-            CachedMethod[] cachedMethods = (CachedMethod[]) ((LazyReference) methods.get(cls)).get();
-            ((LazyReference) methods.get(cls)).clear();
-            clearCachedMethods(cachedMethods);
+        if(cls.classInfo!=null && cls.getTheClass()!=null && cls.getCachedSuperClass()!=null
+                && cls.getCachedSuperClass().getTheClass()!=null) {
+            ((LazyReference) fields.get(cls)).clear();
+
+            if (methods.get(cls) != null) {
+                CachedMethod[] cachedMethods = (CachedMethod[]) ((LazyReference) methods.get(cls)).get();
+                ((LazyReference) methods.get(cls)).clear();
+                clearCachedMethods(cachedMethods);
+            }
+
+            ((LazyReference) constructors.get(cls)).clear();
+            CachedConstructor[] cachedConstructors = (CachedConstructor[]) ((LazyReference) constructors.get(cls)).get();
+            for (int i = 0; i < cachedConstructors.length; i++) {
+                cachedConstructors[i] = null;
+            }
+
+            ((LazyReference) cachedSuperClass.get(cls)).clear();
+
+            ((LazyReference) callSiteClassLoader.get(cls)).clear();
+
+//            cachedClass.set(cls, null);
+//            cls.classInfo = null;
         }
-
-        ((LazyReference)constructors.get(cls)).clear();
-        CachedConstructor[] cachedConstructors = (CachedConstructor[]) ((LazyReference)constructors.get(cls)).get();
-        for(int i=0;i<cachedConstructors.length;i++){
-            cachedConstructors[i] = null;
-        }
-
-        ((LazyReference)cachedSuperClass.get(cls)).clear();
-
-        ((LazyReference)callSiteClassLoader.get(cls)).clear();
-        cachedClass.set(cls, null);
-
-        cls.classInfo = null;
     }
 
     private static void clearClassInfo(ClassInfo classInfo) throws IllegalAccessException {
@@ -174,9 +186,8 @@ public class ScriptExecutionMemoryTest {
 //        System.err.println(mci);
         try {
             clearClassInfo(((MetaClassImpl)metaClassRegistry.getMetaClass(scriptClass)).getClassInfo());
-
-            clearInstanceMethods(((MetaClassImpl)metaClassRegistry.getMetaClass(scriptClass)).getTheCachedClass());
             clearCachedClass(((MetaClassImpl)metaClassRegistry.getMetaClass(scriptClass)).getTheCachedClass());
+            clearInstanceMethods(((MetaClassImpl)metaClassRegistry.getMetaClass(scriptClass)).getTheCachedClass());
 
         } catch (IllegalAccessException e) {
             e.printStackTrace(System.err);
