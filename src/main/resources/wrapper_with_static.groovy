@@ -1,6 +1,6 @@
 import static org.codehaus.groovy.runtime.InvokerHelper.toMapString;
 
-class Init {
+class Init1 {
     static {
         def toStr = {
             "expando: " + toMapString(delegate, 100)
@@ -10,6 +10,6 @@ class Init {
     }
 }
 
-new Init();
+new Init1();
 
 return script.run();

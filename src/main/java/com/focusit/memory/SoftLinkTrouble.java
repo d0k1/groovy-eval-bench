@@ -1,6 +1,5 @@
 package com.focusit.memory;
 
-import com.focusit.cpu.groovy.groovyscript.groovyshell.GroovyShellExample;
 import groovy.lang.GroovyClassLoader;
 import groovy.lang.Script;
 import org.apache.commons.io.IOUtils;
@@ -15,7 +14,7 @@ import java.util.concurrent.Executors;
  */
 public class SoftLinkTrouble {
     private static Class wrapper;
-    private static ExecutorService executor = Executors.newFixedThreadPool(150, r -> {
+    private static ExecutorService executor = Executors.newFixedThreadPool(10, r -> {
         Thread th = new Thread(r);
         th.setDaemon(true);
         return th;
@@ -25,7 +24,7 @@ public class SoftLinkTrouble {
         final String[] simpleScriptBody = new String[1];
         Object results[] = new Object[times];
 
-        try (InputStream is = GroovyShellExample.class.getClassLoader().getResourceAsStream(scriptName))
+        try (InputStream is = SoftLinkTrouble.class.getClassLoader().getResourceAsStream(scriptName))
         {
             simpleScriptBody[0] = IOUtils.toString(is, "UTF-8");
         }
@@ -59,16 +58,18 @@ public class SoftLinkTrouble {
 
         compileWrapper();
 
-//        while(1==1) {
-            execScript("SimpleCallSite.groovy", 1);
-            System.out.println("5000 Done");
+        System.in.read();
+
+        while(1==1) {
+            execScript("SimpleCallSite.groovy", 4000);
+            System.out.println("4000 Done");
             System.in.read();
-//        }
+        }
     }
 
     private static void compileWrapper() throws IOException {
         String simpleScriptBody;
-        try (InputStream is = GroovyShellExample.class.getClassLoader().getResourceAsStream("GroovyStaticInit.groovy"))
+        try (InputStream is = SoftLinkTrouble.class.getClassLoader().getResourceAsStream("GroovyStaticInit.groovy"))
         {
             simpleScriptBody = IOUtils.toString(is, "UTF-8");
         }
